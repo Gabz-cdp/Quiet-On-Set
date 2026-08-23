@@ -76,6 +76,7 @@ public class FPController : MonoBehaviour
         {
                 ToggleObjects();
                 //moveSpeed = 3f;
+                //need to find a way to lower move speed and raise it when action is performed again
         }
     }
 
