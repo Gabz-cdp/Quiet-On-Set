@@ -1,3 +1,4 @@
+/*
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -21,3 +22,4 @@ public class HiddenObjectsController : MonoBehaviour
         hiddenObjectsPrefab.SetActive(!currentState);
     }
 }
+*/
