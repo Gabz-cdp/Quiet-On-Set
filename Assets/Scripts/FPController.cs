@@ -72,6 +72,7 @@ public class FPController : MonoBehaviour
         transform.Rotate(Vector3.up * mouseX);
     }
 
+    //Camera and Hidden Objects
 
     [SerializeField] GameObject hiddenObjectsPrefab;
 
@@ -93,5 +94,6 @@ public class FPController : MonoBehaviour
 }
 
 /* Code References
+ * Moving and Looking : Andrea Hayes
  * OnReveal and ToggleObjects : 'Input toggle - challenge - unity fundamentals - 12. (2020). [Video] Directed by ACDev. YouTube. Available at: https://www.youtube.com/watch?v=GtUwrRsd8Vk'
  */
