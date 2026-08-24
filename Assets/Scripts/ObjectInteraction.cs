@@ -52,11 +52,8 @@ public class ObjectInteraction : MonoBehaviour
                     }
                 }
             }
-   
         }
-    
-          
-
+        
         if (CheckUserClose())
         {
             if (isExamining)
@@ -70,6 +67,7 @@ public class ObjectInteraction : MonoBehaviour
                 StopExamination();
             }
         }
+        
     }
    
 
