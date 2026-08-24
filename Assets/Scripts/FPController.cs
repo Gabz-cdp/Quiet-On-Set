@@ -1,5 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 public class FPController : MonoBehaviour
 {
     [Header("Movement Settings")]
@@ -47,11 +50,13 @@ public class FPController : MonoBehaviour
 
     public void HandleMovement()
     {
-        Vector3 move = transform.right * moveInput.x + transform.forward *
-        moveInput.y;
+        Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
         controller.Move(move * moveSpeed * Time.deltaTime);
         if (controller.isGrounded && velocity.y < 0)
+        {
             velocity.y = -2f;
+        }
+
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
@@ -60,13 +65,14 @@ public class FPController : MonoBehaviour
     {
         float mouseX = lookInput.x * lookSensitivity;
         float mouseY = lookInput.y * lookSensitivity;
+
         verticalRotation -= mouseY;
-        verticalRotation = Mathf.Clamp(verticalRotation, -
-        verticalLookLimit, verticalLookLimit);
-        cameraTransform.localRotation = Quaternion.Euler(verticalRotation,
-        0f, 0f);
+        verticalRotation = Mathf.Clamp(verticalRotation, - verticalLookLimit, verticalLookLimit);
+        cameraTransform.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
     }
+
+    //Camera and Hidden Objects
 
     [SerializeField] GameObject hiddenObjectsPrefab;
 
@@ -74,9 +80,9 @@ public class FPController : MonoBehaviour
     {
         if (context.performed)
         {
-                ToggleObjects();
-                //moveSpeed = 3f;
-                //need to find a way to lower move speed and raise it when action is performed again
+            ToggleObjects();
+            //moveSpeed = 3f;
+            //need to find a way to lower move speed and raise it when action is performed again
         }
     }
 
@@ -86,3 +92,8 @@ public class FPController : MonoBehaviour
         hiddenObjectsPrefab.SetActive(!currentState);
     }
 }
+
+/* Code References
+ * Moving and Looking : Andrea Hayes
+ * OnReveal and ToggleObjects : 'Input toggle - challenge - unity fundamentals - 12. (2020). [Video] Directed by ACDev. YouTube. Available at: https://www.youtube.com/watch?v=GtUwrRsd8Vk'
+ */
