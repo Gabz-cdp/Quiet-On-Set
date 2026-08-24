@@ -39,7 +39,7 @@ public class ObjectInteraction : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.CompareTag("InteractableObject"))
+                if (hit.collider.CompareTag("InteractableObjects"))
                 {
                     ToggleExamination();
 
@@ -67,7 +67,6 @@ public class ObjectInteraction : MonoBehaviour
                 StopExamination();
             }
         }
-
     }
 
     public void ToggleExamination()
@@ -126,6 +125,10 @@ public class ObjectInteraction : MonoBehaviour
         float distance = Vector3.Distance(targetObject.transform.position, targetObject.transform.position);
 
         //Check if they are close based on the threshold
-        return (distance < 2);
+        return (distance < 10);
     }
 }
+
+/* Code References
+ * Interaction : Unity 3D - how to examine objects with mouse input. (2023). [Video] Directed by LearnWithYas. YouTube. Available at: https://www.youtube.com/watch?v=Ya0VkoAjDmY
+ */
