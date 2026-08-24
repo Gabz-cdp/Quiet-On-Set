@@ -80957,7 +80957,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -103505,12 +103505,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.1779861, y: 3.8179927, z: 1}
+  m_Center: {x: 0.58899176, y: 1.408996, z: 0.000000010429192}
 --- !u!23 &1145130378
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -119938,7 +119938,7 @@ GameObject:
   - component: {fileID: 1341361648}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119958,7 +119958,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -120150,7 +120150,7 @@ MonoBehaviour:
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1744797741}
 --- !u!143 &1341361647
 CharacterController:
   m_ObjectHideFlags: 0
@@ -146921,14 +146921,14 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
+  m_Radius: 1.3378705
+  m_Height: 3.954745
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0.83787143, y: 0, z: -0.00000015885041}
 --- !u!23 &1556032561
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -163886,7 +163886,6 @@ GameObject:
   - component: {fileID: 1744797742}
   - component: {fileID: 1744797741}
   - component: {fileID: 1744797740}
-  - component: {fileID: 1744797743}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -163941,7 +163940,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -163969,22 +163968,6 @@ Transform:
   - {fileID: 893330206}
   m_Father: {fileID: 1341361644}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1744797743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1744797739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60610da32d5969d4e84d712289e6e3ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PickUp
-  player: {fileID: 1341361640}
-  holdPos: {fileID: 0}
-  throwForce: 500
-  pickUpRange: 1
 --- !u!43 &1748617186
 Mesh:
   m_ObjectHideFlags: 0

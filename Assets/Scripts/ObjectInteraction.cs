@@ -52,7 +52,10 @@ public class ObjectInteraction : MonoBehaviour
                     }
                 }
             }
+   
         }
+    
+          
 
         if (CheckUserClose())
         {
@@ -68,6 +71,7 @@ public class ObjectInteraction : MonoBehaviour
             }
         }
     }
+   
 
     public void ToggleExamination()
     {
