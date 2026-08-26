@@ -81073,7 +81073,6 @@ GameObject:
   - component: {fileID: 893330206}
   - component: {fileID: 893330205}
   - component: {fileID: 893330204}
-  - component: {fileID: 893330203}
   m_Layer: 0
   m_Name: Offset
   m_TagString: Untagged
@@ -81081,27 +81080,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &893330203
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 893330202}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &893330204
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -119816,12 +119794,10 @@ GameObject:
   - component: {fileID: 1341361644}
   - component: {fileID: 1341361643}
   - component: {fileID: 1341361642}
-  - component: {fileID: 1341361641}
   - component: {fileID: 1341361647}
   - component: {fileID: 1341361646}
   - component: {fileID: 1341361645}
   - component: {fileID: 1341361648}
-  - component: {fileID: 1341361649}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -119829,29 +119805,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &1341361641
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1341361640}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1341361642
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -120018,8 +119971,8 @@ MonoBehaviour:
     m_ActionName: 'Player/Camera[/Keyboard/space]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1341361649}
-        m_TargetAssemblyTypeName: PlayerPickup, Assembly-CSharp
+      - m_Target: {fileID: 1341361648}
+        m_TargetAssemblyTypeName: ObjectInteraction, Assembly-CSharp
         m_MethodName: OnInteract
         m_Mode: 0
         m_Arguments:
@@ -120069,32 +120022,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1341361640}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e7c14d4b080a504c817538606e4b433, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
-  interactionDistance: 5
-  pickupKey: 101
-  descriptionPanel: {fileID: 1355978333}
-  descriptionText: {fileID: 756137745}
---- !u!114 &1341361649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1341361640}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccb2458ae3792ca499dcc666938b75de, type: 3}
+  m_Script: {fileID: 11500000, guid: 9068e1663802f65428299b983213dc3b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerPickup
-  holdPoint: {fileID: 893330206}
-  pickupLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  pickupRange: 5
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectInteraction
+  offset: {fileID: 893330202}
+  isExamining: 0
+  tableObject: {fileID: 1471093867}
 --- !u!1 &1343136740
 GameObject:
   m_ObjectHideFlags: 0

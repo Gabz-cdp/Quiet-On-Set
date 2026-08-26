@@ -32,31 +32,34 @@ public class ObjectInteraction : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
+        Debug.Log("anything");
+        //if (context.performed)
+        //{
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
+            Debug.DrawRay(ray.origin, ray.direction * 100f, Color.red, 2f);
 
             if (Physics.Raycast(ray, out hit))
             {
                 if (hit.collider.CompareTag("InteractableObjects"))
                 {
-                    ToggleExamination();
+                    //ToggleExamination();
 
                     //Store currently examined object and its original position and rotation 
-                    if (isExamining)
-                    {
+                    //if (isExamining)
+                    //{
+                        Debug.Log("Examining object: " + hit.transform.name);
                         examinedObject = hit.transform;
                         originalPositions[examinedObject] = examinedObject.position;
                         originalRotations[examinedObject] = examinedObject.rotation;
-                    }
+                    //}
                 }
             }
    
-        }
+        //}
     
           
-
+        /*
         if (CheckUserClose())
         {
             if (isExamining)
@@ -70,6 +73,7 @@ public class ObjectInteraction : MonoBehaviour
                 StopExamination();
             }
         }
+        */
     }
    
 
