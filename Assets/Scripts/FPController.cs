@@ -15,6 +15,7 @@ public class FPController : MonoBehaviour
     public float verticalLookLimit = 90f;
 
     [Header("Reveal Setting")]
+    public float CameraUpSpeed = 3f;
     private float originalMoveSpeed;
 
     private CharacterController controller;
@@ -30,7 +31,7 @@ public class FPController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        //originalMoveSpeed = moveSpeed;
+        originalMoveSpeed = moveSpeed;
     }
     private void Update()
     {
@@ -72,8 +73,8 @@ public class FPController : MonoBehaviour
         transform.Rotate(Vector3.up * mouseX);
     }
 
-    //Camera and Hidden Objects
 
+    //Camera and Hidden Objects
     [SerializeField] GameObject hiddenObjectsPrefab;
 
     public void OnReveal(InputAction.CallbackContext context)
@@ -81,8 +82,12 @@ public class FPController : MonoBehaviour
         if (context.performed)
         {
             ToggleObjects();
-            //moveSpeed = 3f;
-            //need to find a way to lower move speed and raise it when action is performed again
+            moveSpeed = CameraUpSpeed;
+        }
+        if (context.canceled)
+        {
+            ToggleObjects();
+            moveSpeed = originalMoveSpeed;
         }
     }
 
