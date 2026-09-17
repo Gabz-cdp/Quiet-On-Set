@@ -17555,6 +17555,7 @@ GameObject:
   - component: {fileID: 107749779}
   - component: {fileID: 107749782}
   - component: {fileID: 107749783}
+  - component: {fileID: 107749784}
   m_Layer: 0
   m_Name: PickUp
   m_TagString: Untagged
@@ -17570,12 +17571,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 107749777}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.24, y: 7.01, z: -13.13}
+  m_LocalRotation: {x: -0, y: -0.70710576, z: -0, w: 0.70710784}
+  m_LocalPosition: {x: -38.770027, y: 6.01, z: 526.75995}
   m_LocalScale: {x: 1.0668, y: 2.1903, z: 1.1433}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1706161101}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &107749779
 BoxCollider:
@@ -17677,7 +17678,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -17694,6 +17695,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 299a8e3cfd772154da92900db5e29103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickUpObject
+--- !u!114 &107749784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107749777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f9b3f7cf358a7d4eb5656b8e9755d0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Rotate3DObject
+  _actions: {fileID: -944628639613478452, guid: 5c483bb0f8c006e448ef5851e3de4305, type: 3}
+  _speed: 120
+  _inverted: 1
 --- !u!43 &110129183
 Mesh:
   m_ObjectHideFlags: 0
@@ -57855,7 +57871,7 @@ Transform:
   m_GameObject: {fileID: 353150475}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.31, y: -0.95, z: -4.86}
+  m_LocalPosition: {x: 0, y: -0.24, z: 4.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -198389,7 +198405,7 @@ MonoBehaviour:
   cameraTransform: {fileID: 1744797742}
   lookSensitivity: 0.5
   verticalLookLimit: 90
-  pickupRange: 3
+  pickupRange: 10
   holdPoint: {fileID: 353150476}
   CameraUpSpeed: 3
   hiddenObjectsPrefab: {fileID: 1076033644}
@@ -198438,22 +198454,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1341361645}
         m_TargetAssemblyTypeName: FPController, Assembly-CSharp
-        m_MethodName: OnLook
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: f55f26ca-f8d1-41be-b837-7c50ad8bd2c5
-    m_ActionName: 'Player/Look[/Mouse/delta]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1341361645}
-        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
         m_MethodName: OnReveal
         m_Mode: 0
         m_Arguments:
@@ -198482,8 +198482,58 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: f726ad31-cd84-4a23-adfb-b9e25c9ae6d1
     m_ActionName: 'Player/Interact[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 107749784}
+        m_TargetAssemblyTypeName: Rotate3DObject, Assembly-CSharp
+        m_MethodName: set_actions
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: -944628639613478452, guid: 5c483bb0f8c006e448ef5851e3de4305, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.InputSystem.InputActionAsset,
+            Unity.InputSystem
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d6a4f22f-743d-470a-89d4-c73b11a2a6eb
+    m_ActionName: 'Player/Left Click[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 107749784}
+        m_TargetAssemblyTypeName: Rotate3DObject, Assembly-CSharp
+        m_MethodName: set_actions
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: -944628639613478452, guid: 5c483bb0f8c006e448ef5851e3de4305, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.InputSystem.InputActionAsset,
+            Unity.InputSystem
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: dc29ed33-2159-4c83-bd9c-21982c55b641
+    m_ActionName: 'Player/Mouse Look[/Mouse/delta]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1341361645}
+        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
+        m_MethodName: OnLook
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 645757fd-649d-4b12-a6f3-24587897f517
+    m_ActionName: 'Player/Look[/Mouse/delta]'
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Keyboard + Mouse
+  m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 1744797741}
@@ -275493,7 +275543,6 @@ Transform:
   - {fileID: 956318534}
   - {fileID: 1493629898}
   - {fileID: 673613935}
-  - {fileID: 107749778}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!43 &1706710628
@@ -280078,7 +280127,7 @@ Transform:
   m_GameObject: {fileID: 1744797739}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.027, y: 0.766, z: -0.277}
+  m_LocalPosition: {x: -0.027, y: 0.766, z: 0.251}
   m_LocalScale: {x: 0.2522826, y: 0.2522826, z: 0.2522826}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -358403,3 +358452,4 @@ SceneRoots:
   - {fileID: 881893442}
   - {fileID: 130849675}
   - {fileID: 1936447246}
+  - {fileID: 107749778}

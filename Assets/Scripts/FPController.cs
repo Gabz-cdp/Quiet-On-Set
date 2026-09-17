@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.Rendering.DebugUI;
 
 public class FPController : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class FPController : MonoBehaviour
     public Transform holdPoint;
     private PickUpObject heldObject;
 
+    /*[Header("Rotation")]
+    public float rotatespeed = 3f;*/
+
     [Header("Reveal Setting")]
     public float CameraUpSpeed = 3f;
     private float originalMoveSpeed;
@@ -28,7 +32,9 @@ public class FPController : MonoBehaviour
     private Vector2 lookInput;
     private Vector3 velocity;
     private float verticalRotation = 0f;
-    
+
+    //private Vector2 inputVector;
+
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -42,6 +48,11 @@ public class FPController : MonoBehaviour
     {
         HandleMovement();
         HandleLook();
+
+        if (heldObject != null)
+        {
+            heldObject.MoveToHoldPoint(holdPoint.position);
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -85,11 +96,18 @@ public class FPController : MonoBehaviour
 
         if (heldObject == null)
         {
+
+         
             Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
+            Debug.DrawRay(cameraTransform.position, cameraTransform.forward, Color.green);
+
 
             if (Physics.Raycast(ray, out RaycastHit hit, pickupRange))
             {
                 PickUpObject pickUp = hit.collider.GetComponent<PickUpObject>();
+
+
+                Debug.Log("pickup");
 
                 if (pickUp != null)
                 {
@@ -104,6 +122,16 @@ public class FPController : MonoBehaviour
             heldObject = null;
         }
     }
+
+    /*public void OnRotate(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+        if (heldObject != null)
+        {
+            //heldObject.transform.rotation = new Vector2(context.ReadValue<Vector2>().x, context.ReadValue<Vector2>().y);
+            transform.rotation *= Quaternion.Euler(inputVector.y, inputVector.x, 0);
+        }
+    }*/
 
 
     //Camera and Hidden Objects
