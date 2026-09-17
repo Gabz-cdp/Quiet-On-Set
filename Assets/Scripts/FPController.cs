@@ -6,16 +6,16 @@ using UnityEngine.InputSystem;
 public class FPController : MonoBehaviour
 {
     [Header("Movement Settings")]
-    public float moveSpeed = 5f;
+    public float moveSpeed = 20f;
     public float gravity = -9.81f;
 
     [Header("Look Settings")]
     public Transform cameraTransform;
-    public float lookSensitivity = 2f;
+    public float lookSensitivity = 0.5f;
     public float verticalLookLimit = 90f;
 
     [Header("Pickup Settings")]
-    public float pickupRange = 3f;
+    public float pickupRange = 5f;
     public Transform holdPoint;
     private PickUpObject heldObject;
 
