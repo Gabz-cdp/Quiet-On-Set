@@ -107,7 +107,7 @@ public class FPController : MonoBehaviour
                 PickUpObject pickUp = hit.collider.GetComponent<PickUpObject>();
 
 
-                Debug.Log("pickup");
+                //Debug.Log("pickup");
 
                 if (pickUp != null)
                 {

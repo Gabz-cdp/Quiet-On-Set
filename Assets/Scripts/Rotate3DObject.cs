@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
+using Cursor = UnityEngine.Cursor;
 
 public class Rotate3DObject : MonoBehaviour
 {
@@ -24,6 +26,11 @@ public class Rotate3DObject : MonoBehaviour
     [SerializeField] private bool _inverted;
     #endregion
 
+    //Object interaction
+    /*private PlayerInput _playerInput;
+    public Canvas _canva;
+    GameObject targetObject;*/
+
     private void Awake()
     {
         InitializeInputSystem();
@@ -34,6 +41,11 @@ public class Rotate3DObject : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         _camera = Camera.main;
+
+        //Object interaction
+        /*_canva.enabled = false;
+        targetObject = GameObject.Find("Player"); //locates the player and assigns it to the targetObject
+        _playerInput = targetObject.GetComponent<PlayerInput>();*/
     }
 
     private void Update()
@@ -71,10 +83,18 @@ public class Rotate3DObject : MonoBehaviour
         if(context.started || context.performed)
         {
             _rotateAllowed = true;
+            /*_canva.enabled = false;
+            Cursor.lockState = CursorLockMode.None; //locks the cursor once a player is examining an object
+            Cursor.visible = true; //hides the cursor
+            _playerInput.enabled = false; //stops player from moving once they are examining the object*/
         }
         else if(context.canceled)
         {
             _rotateAllowed= false;
+            /*_canva.enabled = true;
+            Cursor.lockState = CursorLockMode.Locked; //unlocks the cursor once a player is examining an object
+            Cursor.visible = false; //reveals the cursor
+            _playerInput.enabled = true; //allows the player to move once they are done examining the object*/
         }
     }
 
