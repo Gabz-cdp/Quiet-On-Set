@@ -17,6 +17,7 @@ public class FPController : MonoBehaviour
     [Header("Reveal Setting")]
     public float CameraUpSpeed = 3f;
     private float originalMoveSpeed;
+    public GameObject[] hiddenObjects;
 
     private CharacterController controller;
     private Vector2 moveInput;
@@ -75,26 +76,26 @@ public class FPController : MonoBehaviour
 
 
     //Camera and Hidden Objects
-    [SerializeField] GameObject hiddenObjectsPrefab;
 
     public void OnReveal(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            ToggleObjects();
+            foreach (GameObject hiddenObject in hiddenObjects) 
+            {
+                hiddenObject.SetActive(true);
+            }
             moveSpeed = CameraUpSpeed;
         }
+
         if (context.canceled)
         {
-            ToggleObjects();
+            foreach (GameObject hiddenObject in hiddenObjects)
+            {
+                hiddenObject.SetActive(false);
+            }
             moveSpeed = originalMoveSpeed;
         }
-    }
-
-    void ToggleObjects()
-    {
-        bool currentState = hiddenObjectsPrefab.activeSelf;
-        hiddenObjectsPrefab.SetActive(!currentState);
     }
 }
 
