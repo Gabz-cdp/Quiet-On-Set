@@ -131664,7 +131664,7 @@ GameObject:
   - component: {fileID: 827457407}
   - component: {fileID: 827457406}
   m_Layer: 0
-  m_Name: CounterTop
+  m_Name: Counter Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -198496,7 +198496,7 @@ MonoBehaviour:
   cameraTransform: {fileID: 1744797742}
   lookSensitivity: 0.5
   verticalLookLimit: 90
-  pickupRange: 20
+  pickupRange: 10
   holdPoint: {fileID: 353150476}
   CameraUpSpeed: 3
   hiddenObjectsPrefab: {fileID: 1076033644}
