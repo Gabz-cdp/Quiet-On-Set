@@ -76,7 +76,6 @@ public class FPController : MonoBehaviour
 
 
     //Camera and Hidden Objects
-
     public void OnReveal(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -98,8 +97,3 @@ public class FPController : MonoBehaviour
         }
     }
 }
-
-/* Code References
- * Moving and Looking : Andrea Hayes
- * OnReveal and ToggleObjects : 'Input toggle - challenge - unity fundamentals - 12. (2020). [Video] Directed by ACDev. YouTube. Available at: https://www.youtube.com/watch?v=GtUwrRsd8Vk'
- */
