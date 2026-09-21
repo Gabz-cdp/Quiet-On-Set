@@ -19,12 +19,27 @@ public class FPController : MonoBehaviour
     private float originalMoveSpeed;
     public GameObject[] hiddenObjects;
 
+
+    [Header("Crouch Settings")]
+    public float crouchHeight = 1f;
+    public float standHeight = 2f;
+    public float crouchSpeed = 2.5f;
+
+    [Header("Pickup Settings")]
+    public float pickupRange = 3f;
+    public Transform holdPoint;
+    private PickUpObject heldObject;
+
+    [Header("Rotation")]
+    public float rotatespeed = 3f;
+
     private CharacterController controller;
     private Vector2 moveInput;
     private Vector2 lookInput;
     private Vector3 velocity;
     private float verticalRotation = 0f;
-    
+    private Vector2 inputVector;
+
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -94,6 +109,57 @@ public class FPController : MonoBehaviour
                 hiddenObject.SetActive(false);
             }
             moveSpeed = originalMoveSpeed;
+        }
+    }
+
+
+    public void OnCrouch(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            controller.height = crouchHeight;
+            moveSpeed = crouchSpeed;
+        }
+        else if (context.canceled)
+        {
+            controller.height = standHeight;
+            moveSpeed = originalMoveSpeed;
+        }
+    }
+
+    public void OnPickUp(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+
+        if (heldObject == null)
+        {
+            Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
+
+            if (Physics.Raycast(ray, out RaycastHit hit, pickupRange))
+            {
+                PickUpObject pickUp = hit.collider.GetComponent<PickUpObject>();
+
+                if (pickUp != null)
+                {
+                    pickUp.PickUp(holdPoint);
+                    heldObject = pickUp;
+                }
+            }
+        }
+        else
+        {
+            heldObject.Drop();
+            heldObject = null;
+        }
+    }
+
+    public void OnRotate(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+        if (heldObject != null)
+        {
+            //heldObject.transform.rotation += context.ReadValue<Vector2>() * rotatespeed;
+            transform.rotation *= Quaternion.Euler(inputVector.y, inputVector.x, 0);
         }
     }
 }
