@@ -9982,10 +9982,9 @@ GameObject:
   - component: {fileID: 107749779}
   - component: {fileID: 107749782}
   - component: {fileID: 107749783}
-  - component: {fileID: 107749784}
   m_Layer: 0
   m_Name: PickUp
-  m_TagString: Untagged
+  m_TagString: canPickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10119,21 +10118,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 107749777}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 299a8e3cfd772154da92900db5e29103, type: 3}
+  m_Script: {fileID: 11500000, guid: 308aeb1b849bc744884e41627da3fcf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickUpObject
---- !u!114 &107749784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107749777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f9b3f7cf358a7d4eb5656b8e9755d0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Rotate3DObject
 --- !u!1 &111175381
 GameObject:
   m_ObjectHideFlags: 0
@@ -53295,6 +53282,7 @@ GameObject:
   - component: {fileID: 533125002}
   - component: {fileID: 533125001}
   - component: {fileID: 533125004}
+  - component: {fileID: 533125005}
   m_Layer: 0
   m_Name: ClockInBall
   m_TagString: Untagged
@@ -53422,6 +53410,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &533125005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533124999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 308aeb1b849bc744884e41627da3fcf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickUpObject
 --- !u!43 &534172375
 Mesh:
   m_ObjectHideFlags: 0
@@ -53815,8 +53815,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 64.99483, y: -125}
-  m_SizeDelta: {x: 779.9897, y: 435.8409}
+  m_AnchoredPosition: {x: 0, y: -125}
+  m_SizeDelta: {x: 779.98975, y: 435.84094}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &540514489
 MonoBehaviour:
@@ -85549,7 +85549,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &831595140
 RectTransform:
   m_ObjectHideFlags: 0
@@ -134466,6 +134466,12 @@ MonoBehaviour:
   - {fileID: 65715389}
   - {fileID: 802814681}
   - {fileID: 1732570868}
+  crouchHeight: 1
+  standHeight: 2
+  crouchSpeed: 2.5
+  pickupRange: 3
+  holdPoint: {fileID: 353150476}
+  rotatespeed: 3
 --- !u!114 &1341361646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134555,8 +134561,24 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: f55f26ca-f8d1-41be-b837-7c50ad8bd2c5
     m_ActionName: 'Player/Look[/Mouse/delta]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1341361645}
+        m_TargetAssemblyTypeName: FPController, Assembly-CSharp
+        m_MethodName: OnCrouch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5acf39cd-3d67-406b-bc57-a9a6faf8954f
+    m_ActionName: 'Player/Crouch[/Keyboard/ctrl]'
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Keyboard + Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 1744797741}
