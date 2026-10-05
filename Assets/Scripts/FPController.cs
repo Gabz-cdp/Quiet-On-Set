@@ -42,6 +42,7 @@ public class FPController : MonoBehaviour
     private Vector3 velocity;
     private float verticalRotation = 0f;
     private Vector2 inputVector;
+    public GameObject Camera;
 
     private void Awake()
     {
@@ -84,6 +85,12 @@ public class FPController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
+        StartBobbing();
+        StopBobbing();
+        /*if (context.performed)
+        {
+            StopBobbing();
+        }*/
     }
 
     public void OnLook(InputAction.CallbackContext context)
@@ -136,6 +143,8 @@ public class FPController : MonoBehaviour
             }
             moveSpeed = originalMoveSpeed;
         }
+
+        StopBobbing();
     }
 
 
@@ -151,6 +160,8 @@ public class FPController : MonoBehaviour
             controller.height = standHeight;
             moveSpeed = originalMoveSpeed;
         }
+     
+        StopBobbing();
     }
 
     public void OnPickUp(InputAction.CallbackContext context)
@@ -187,5 +198,15 @@ public class FPController : MonoBehaviour
             //heldObject.transform.rotation += context.ReadValue<Vector2>() * rotatespeed;
             transform.rotation *= Quaternion.Euler(inputVector.y, inputVector.x, 0);
         }
+    }
+
+    void StartBobbing()
+    {
+        Camera.GetComponent<Animator>().Play("HeadBobbing");
+    }
+
+    void StopBobbing()
+    {
+        Camera.GetComponent<Animator>().Play("New State");
     }
 }
