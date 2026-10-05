@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -29,6 +30,7 @@ public class FPController : MonoBehaviour
     public float pickupRange = 3f;
     public Transform holdPoint;
     private PickUpObject heldObject;
+    public TMP_Text pickupText;
 
     [Header("Rotation")]
     public float rotatespeed = 3f;
@@ -53,6 +55,25 @@ public class FPController : MonoBehaviour
     {
         HandleMovement();
         HandleLook();
+
+        if (heldObject != null)
+        {
+            heldObject.MoveToHoldPoint(holdPoint.position);
+        }
+
+        Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
+        if (Physics.Raycast(ray, out RaycastHit hit, pickupRange))
+        {
+            PickUpObject pickUp = hit.collider.GetComponent<PickUpObject>();
+            if (pickUp != null)
+            {
+                pickupText.text = "pick up [E]"; //can replace to = pickUp.gameObject.name
+                return;
+            }
+        }
+
+        //Clear text if not looking at object
+        pickupText.text = "";
     }
 
     public void OnMove(InputAction.CallbackContext context)
