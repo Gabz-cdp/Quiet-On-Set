@@ -31,6 +31,7 @@ public class FPController : MonoBehaviour
     public Transform holdPoint;
     private PickUpObject heldObject;
     public TMP_Text pickupText;
+    public GameObject circleHair;
 
     [Header("Rotation")]
     public float rotatespeed = 3f;
@@ -50,6 +51,8 @@ public class FPController : MonoBehaviour
         Cursor.visible = false;
 
         originalMoveSpeed = moveSpeed;
+
+        circleHair.gameObject.SetActive(false);
     }
     private void Update()
     {
@@ -68,12 +71,14 @@ public class FPController : MonoBehaviour
             if (pickUp != null)
             {
                 pickupText.text = "pick up [E]"; //can replace to = pickUp.gameObject.name
+                circleHair.gameObject.SetActive(true);
                 return;
             }
         }
 
         //Clear text if not looking at object
         pickupText.text = "";
+        circleHair.gameObject.SetActive(false);
     }
 
     public void OnMove(InputAction.CallbackContext context)
