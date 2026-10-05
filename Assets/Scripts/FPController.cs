@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using TMPro;
 
 public class FPController : MonoBehaviour
 {
@@ -67,12 +67,12 @@ public class FPController : MonoBehaviour
             PickUpObject pickUp = hit.collider.GetComponent<PickUpObject>();
             if (pickUp != null)
             {
-                pickupText.text = pickUp.gameObject.name; //this will be the name of the object but can just say "pickup" instead 
+                pickupText.text = "pick up [E]"; //can replace to = pickUp.gameObject.name
                 return;
             }
         }
 
-        //Clear text if not looking at the interactable object
+        //Clear text if not looking at object
         pickupText.text = "";
     }
 
