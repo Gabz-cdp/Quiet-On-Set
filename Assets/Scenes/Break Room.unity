@@ -74332,7 +74332,7 @@ GameObject:
   - component: {fileID: 666839671}
   - component: {fileID: 666839670}
   m_Layer: 0
-  m_Name: Sign
+  m_Name: QuietOnSetSign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74393,7 +74393,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b13afee25949b0d49bafdc0183b9cd75, type: 2}
+  - {fileID: 2100000, guid: 0d20a2ced29032940a5a72a1e0590257, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -74667,8 +74667,8 @@ Transform:
   m_GameObject: {fileID: 666839669}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.99, y: 1.3433504, z: -0.33}
-  m_LocalScale: {x: 11.54457, y: 7.855052, z: 0.9326303}
+  m_LocalPosition: {x: -6.99, y: 1.3433504, z: -0.17}
+  m_LocalScale: {x: 11.54457, y: 7.855052, z: 0.0028070307}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1485501426}
@@ -84015,7 +84015,7 @@ GameObject:
   - component: {fileID: 815705201}
   - component: {fileID: 815705200}
   m_Layer: 0
-  m_Name: Cube (26)
+  m_Name: Tessa'sDoorSign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84030,8 +84030,8 @@ Transform:
   m_GameObject: {fileID: 815705198}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.70710576, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: 104.85, y: 14.799999, z: 442.162}
-  m_LocalScale: {x: 0.052966136, y: 6.203638, z: 8.545829}
+  m_LocalPosition: {x: 104.7108, y: 13.6346, z: 442.162}
+  m_LocalScale: {x: 0.052966136, y: 8.883259, z: 6.984814}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 202213797}
@@ -84091,7 +84091,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 582a991ddda150342a13ad7a90a7dec1, type: 2}
+  - {fileID: 2100000, guid: 64536a3973ded2a49933190b577d5337, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
