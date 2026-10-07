@@ -33,8 +33,12 @@ public class FPController : MonoBehaviour
     public TMP_Text pickupText;
     public GameObject circleHair;
 
-    [Header("Rotation")]
-    public float rotatespeed = 3f;
+    //[Header("Rotation")]
+    //public float rotatespeed = 3f;
+
+    [Header("Throw Settings")]
+    public float throwForce = 10f;
+    public float throwUpwardBoost = 1f;
 
     private CharacterController controller;
     private Vector2 moveInput;
@@ -190,17 +194,28 @@ public class FPController : MonoBehaviour
         }
     }
 
-    public void OnRotate(InputAction.CallbackContext context)
+    public void OnThrow(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
-        if (heldObject != null)
-        {
-            //heldObject.transform.rotation += context.ReadValue<Vector2>() * rotatespeed;
-            transform.rotation *= Quaternion.Euler(inputVector.y, inputVector.x, 0);
-        }
+        if (heldObject == null) return;
+        Vector3 dir = cameraTransform.forward;
+        Vector3 impulse = dir * throwForce + Vector3.up *
+        throwUpwardBoost;
+        heldObject.Throw(impulse);
+        heldObject = null;
     }
 
-    void StartBobbing()
+        /*public void OnRotate(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+            if (heldObject != null)
+            {
+                //heldObject.transform.rotation += context.ReadValue<Vector2>() * rotatespeed;
+                transform.rotation *= Quaternion.Euler(inputVector.y, inputVector.x, 0);
+            }
+        }*/
+
+        void StartBobbing()
     {
         Camera.GetComponent<Animator>().Play("HeadBobbing");
     }
