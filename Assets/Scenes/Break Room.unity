@@ -155446,7 +155446,7 @@ GameObject:
   - component: {fileID: 1477085586}
   - component: {fileID: 1477085585}
   m_Layer: 0
-  m_Name: Cube (28)
+  m_Name: Supply Closet Sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155461,8 +155461,8 @@ Transform:
   m_GameObject: {fileID: 1477085583}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 97.99, y: 17.2, z: 367.992}
-  m_LocalScale: {x: 0.05265469, y: 7.3375483, z: 2.321234}
+  m_LocalPosition: {x: 97.99, y: 15.27, z: 368.09665}
+  m_LocalScale: {x: 0.0018459156, y: 9.401358, z: 2.5305629}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 202213797}
@@ -155522,7 +155522,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 51d7c60042a829e4899ace9584d34702, type: 2}
+  - {fileID: 2100000, guid: 8a00b7b7aede76249a8ea1d786c5a13b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
