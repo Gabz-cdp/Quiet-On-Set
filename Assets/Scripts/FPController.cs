@@ -30,8 +30,18 @@ public class FPController : MonoBehaviour
     public float pickupRange = 3f;
     public Transform holdPoint;
     private PickUpObject heldObject;
-    public TMP_Text pickupText;
-    public GameObject circleHair;
+    public TMP_Text pickupText; //Pickup text
+    public GameObject circleHair; //Crosshair trigger to show when an object/door is in range
+
+    [Header("Open Door")]
+    public TMP_Text OpenDoorText; //Open door text
+    public float OpenDoorRange = 5f;
+    public GameObject OpenDoorCrossHair;
+
+    [Header("Close Door")]
+    public TMP_Text CloseDoorText;
+    public GameObject CloseDoorCrossHair;
+    //public float CloseDoorRange = 5f;
 
     //[Header("Rotation")]
     //public float rotatespeed = 3f;
@@ -57,7 +67,11 @@ public class FPController : MonoBehaviour
 
         originalMoveSpeed = moveSpeed;
 
+        //Clears crosshairs that are set to raycast at the start of the game
         circleHair.gameObject.SetActive(false);
+        OpenDoorCrossHair.gameObject.SetActive(false);
+        CloseDoorCrossHair.gameObject.SetActive(false);
+
     }
     private void Update()
     {
@@ -72,25 +86,110 @@ public class FPController : MonoBehaviour
         Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
         if (Physics.Raycast(ray, out RaycastHit hit, pickupRange))
         {
+            //Checking for the interactable objects to mark that the crosshair is on it
             PickUpObject pickUp = hit.collider.GetComponent<PickUpObject>();
             if (pickUp != null)
             {
                 pickupText.text = "pick up [E]"; //can replace to = pickUp.gameObject.name
-                circleHair.gameObject.SetActive(true);
+                circleHair.gameObject.SetActive(true); //crosshair trigger enabled when raycast is on object/door
                 return;
             }
         }
+        if (Physics.Raycast(ray, out hit, OpenDoorRange))
+        {
+            //Play the "DoorOpen" animation if the object is a door
+            Animator doorAnimator = hit.collider.GetComponentInParent<Animator>();
+            if (doorAnimator != null)
+            {
+                OpenDoorText.text = "Open Door [E]";
+                OpenDoorCrossHair.gameObject.SetActive(true);
+                return;
+            }
+            else if (doorAnimator == null)
+            {
+                OpenDoorText.enabled = false; //disabling the open door text
+                OpenDoorCrossHair.gameObject.SetActive(false); //disabling the open door crosshair
+                CloseDoorText.text = "Close Door [E]";
+                CloseDoorCrossHair.gameObject.SetActive(true);
+                return;
+            }
+        }
+       
 
-        //Clear text if not looking at object
-        pickupText.text = "";
-        circleHair.gameObject.SetActive(false);
+        //Clear text if not looking at an object
+        pickupText.text = ""; //clears text when raycast isnt hitting the object
+        circleHair.gameObject.SetActive(false); //disables the crosshair for the object
+
+        //Clear text if not looking at the door
+        CloseDoorText.text = "";
+        CloseDoorText.gameObject.SetActive(false);
+
+        // Clear text if not looking at the door
+        OpenDoorText.text = ""; //clears text when raycast isnt hitting the door
+        OpenDoorCrossHair.gameObject.SetActive(false); //disables the crosshair for the door*/
+        
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, pickupRange))
+            {
+                //Check if object is a door
+                if (hit.collider.CompareTag("Door"))
+                {
+                    //Play the "DoorOpen" animation if the object is a door
+                    Animator doorAnimator = hit.collider.GetComponentInParent<Animator>();
+                    //bool IsOpen = doorAnimator.GetBool("IsOpen");
+                    
+                    if (doorAnimator != null)
+                    {
+                        doorAnimator.SetTrigger("DoorOpen");
+                        OpenDoorText.text = "Open Door [E]";
+                        OpenDoorCrossHair.gameObject.SetActive(true);
+                        return;
+                    }
+                    else
+                    {
+                        doorAnimator.SetTrigger("DoorClose");
+                        CloseDoorText.text = "Close Door [E]";
+                        CloseDoorCrossHair.gameObject.SetActive(true);
+                        return;
+                    }
+
+                    /*if (IsOpen)
+                    {
+                        doorAnimator.SetTrigger("DoorClose");
+                        doorAnimator.SetBool("IsOpen", false);
+                        CloseDoorText.text = "Close Door [E]";
+                        CloseDoorCrossHair.gameObject.SetActive(true);
+                        return;
+                    }
+                    else
+                    {
+                        doorAnimator.SetTrigger("DoorOpen");
+                        doorAnimator.SetBool("IsOpen", true);
+                    }*/
+                }
+            }
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-        StartBobbing();
-        StopBobbing();
+        if(moveSpeed > 0)
+        {
+            StartBobbing();
+        }
+        else if(moveSpeed <= 0)
+        {
+            StopBobbing();
+        }
         /*if (context.performed)
         {
             StopBobbing();

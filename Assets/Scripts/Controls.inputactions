@@ -34,7 +34,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Interact",
+                    "name": "PickUp",
                     "type": "Button",
                     "id": "f726ad31-cd84-4a23-adfb-b9e25c9ae6d1",
                     "expectedControlType": "",
@@ -55,6 +55,15 @@
                     "name": "Throw",
                     "type": "Value",
                     "id": "c363bb29-47b3-400e-aca1-4cf30041bd59",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Interact",
+                    "type": "Value",
+                    "id": "4efd9901-4288-4bfa-8bf9-9b73a5a22abc",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -278,7 +287,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard + Mouse",
-                    "action": "Interact",
+                    "action": "PickUp",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -289,7 +298,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Controller",
-                    "action": "Interact",
+                    "action": "PickUp",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -312,6 +321,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Throw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "65ad0b72-2138-4745-91ec-4c83e62fb9f5",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
