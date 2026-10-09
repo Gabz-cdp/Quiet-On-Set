@@ -95,10 +95,13 @@ public class FPController : MonoBehaviour
                 return;
             }
         }
+
         if (Physics.Raycast(ray, out hit, OpenDoorRange))
         {
             //Play the "DoorOpen" animation if the object is a door
             Animator doorAnimator = hit.collider.GetComponentInParent<Animator>();
+            //bool IsOpen = doorAnimator.GetBool("IsOpen");
+
             if (doorAnimator != null)
             {
                 OpenDoorText.text = "Open Door [E]";
@@ -144,7 +147,6 @@ public class FPController : MonoBehaviour
                 {
                     //Play the "DoorOpen" animation if the object is a door
                     Animator doorAnimator = hit.collider.GetComponentInParent<Animator>();
-                    //bool IsOpen = doorAnimator.GetBool("IsOpen");
                     
                     if (doorAnimator != null)
                     {
