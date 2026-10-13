@@ -70,6 +70,7 @@ public class FPController : MonoBehaviour
         //Clears crosshairs that are set to raycast at the start of the game
         circleHair.gameObject.SetActive(false);
         OpenDoorCrossHair.gameObject.SetActive(false);
+        OpenDoorText.enabled = false;
         CloseDoorCrossHair.gameObject.SetActive(false);
 
     }
@@ -104,6 +105,7 @@ public class FPController : MonoBehaviour
 
             if (doorAnimator != null)
             {
+                OpenDoorText.enabled = true;
                 OpenDoorText.text = "Open Door [E]";
                 OpenDoorCrossHair.gameObject.SetActive(true);
                 return;
@@ -112,8 +114,8 @@ public class FPController : MonoBehaviour
             {
                 OpenDoorText.enabled = false; //disabling the open door text
                 OpenDoorCrossHair.gameObject.SetActive(false); //disabling the open door crosshair
-                CloseDoorText.text = "Close Door [E]";
-                CloseDoorCrossHair.gameObject.SetActive(true);
+                //CloseDoorText.text = "Close Door [E]";
+                //CloseDoorCrossHair.gameObject.SetActive(true);
                 return;
             }
         }
@@ -140,7 +142,7 @@ public class FPController : MonoBehaviour
             Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, pickupRange))
+            if (Physics.Raycast(ray, out hit, OpenDoorRange))
             {
                 //Check if object is a door
                 if (hit.collider.CompareTag("Door"))
