@@ -44,7 +44,7 @@
                 },
                 {
                     "name": "Crouch",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "5acf39cd-3d67-406b-bc57-a9a6faf8954f",
                     "expectedControlType": "",
                     "processors": "",
@@ -53,7 +53,7 @@
                 },
                 {
                     "name": "Throw",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "c363bb29-47b3-400e-aca1-4cf30041bd59",
                     "expectedControlType": "",
                     "processors": "",
@@ -61,8 +61,8 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Interact",
-                    "type": "Value",
+                    "name": "DoorInteract",
+                    "type": "Button",
                     "id": "4efd9901-4288-4bfa-8bf9-9b73a5a22abc",
                     "expectedControlType": "",
                     "processors": "",
@@ -331,7 +331,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Interact",
+                    "action": "DoorInteract",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

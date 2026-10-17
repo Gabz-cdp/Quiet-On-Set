@@ -114,8 +114,8 @@ public class FPController : MonoBehaviour
             {
                 OpenDoorText.enabled = false; //disabling the open door text
                 OpenDoorCrossHair.gameObject.SetActive(false); //disabling the open door crosshair
-                //CloseDoorText.text = "Close Door [E]";
-                //CloseDoorCrossHair.gameObject.SetActive(true);
+                CloseDoorText.text = "Close Door [E]";
+                CloseDoorCrossHair.gameObject.SetActive(true);
                 return;
             }
         }
@@ -149,13 +149,38 @@ public class FPController : MonoBehaviour
                 {
                     //Play the "DoorOpen" animation if the object is a door
                     Animator doorAnimator = hit.collider.GetComponentInParent<Animator>();
+                    bool isOpen = doorAnimator.GetBool("isOpen");
                     
-                    if (doorAnimator != null)
+                    //Switches between open and close animations using "isOpen" flag
+                    if (isOpen)
                     {
+                        //Front Office Door
+                        doorAnimator.SetTrigger("CloseDoor");
+                        doorAnimator.SetBool("isOpen", false);
+
+                        //Supply Closey
+                        doorAnimator.SetTrigger("CloseDoor");
+                        doorAnimator.SetBool("isOpen", false);
+                    }
+                    else
+                    {
+                        //Front Office Door
+                        doorAnimator.SetTrigger("OpenDoor");
+                        doorAnimator.SetBool("isOpen", true);
+
+                        //Supply Closey
+                        doorAnimator.SetTrigger("OpenDoor");
+                        doorAnimator.SetBool("isOpen", true);
+                    }
+                    
+                    /*if (doorAnimator != null)
+                    {
+                        //Supply Closet Door
                         doorAnimator.SetTrigger("DoorOpen");
                         OpenDoorText.text = "Open Door [E]";
                         OpenDoorCrossHair.gameObject.SetActive(true);
                         return;
+
                     }
                     else
                     {
@@ -163,7 +188,7 @@ public class FPController : MonoBehaviour
                         CloseDoorText.text = "Close Door [E]";
                         CloseDoorCrossHair.gameObject.SetActive(true);
                         return;
-                    }
+                    }*/
 
                     /*if (IsOpen)
                     {
@@ -251,7 +276,7 @@ public class FPController : MonoBehaviour
             moveSpeed = originalMoveSpeed;
         }
 
-        StopBobbing();
+        //StopBobbing();
     }
 
 
