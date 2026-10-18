@@ -84,6 +84,7 @@ public class FPController : MonoBehaviour
             heldObject.MoveToHoldPoint(holdPoint.position);
         }
 
+        //==INTERACTABLE OBJECTS==
         Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
         if (Physics.Raycast(ray, out RaycastHit hit, pickupRange))
         {
@@ -97,6 +98,7 @@ public class FPController : MonoBehaviour
             }
         }
 
+        //==DOOR ANIMATION==
         if (Physics.Raycast(ray, out hit, OpenDoorRange))
         {
             //Play the "DoorOpen" animation if the object is a door
@@ -211,11 +213,11 @@ public class FPController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-        if(moveSpeed > 0)
+        if(moveSpeed > 0.1)
         {
             StartBobbing();
         }
-        else if(moveSpeed <= 0)
+        else if(moveSpeed <= 0.1)
         {
             StopBobbing();
         }
@@ -276,7 +278,7 @@ public class FPController : MonoBehaviour
             moveSpeed = originalMoveSpeed;
         }
 
-        //StopBobbing();
+        StopBobbing();
     }
 
 
