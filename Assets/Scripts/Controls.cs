@@ -163,6 +163,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UICanvas"",
+                    ""type"": ""Button"",
+                    ""id"": ""0e85b6fb-cde9-4aa8-8a7d-a3579ca58bbc"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -440,6 +449,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""OpenPauseMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6c071b28-a6f3-4cfe-b10e-154e79ec55a9"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UICanvas"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -484,6 +504,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Throw = m_Player.FindAction("Throw", throwIfNotFound: true);
         m_Player_DoorInteract = m_Player.FindAction("DoorInteract", throwIfNotFound: true);
         m_Player_OpenPauseMenu = m_Player.FindAction("OpenPauseMenu", throwIfNotFound: true);
+        m_Player_UICanvas = m_Player.FindAction("UICanvas", throwIfNotFound: true);
     }
 
     ~@Controls()
@@ -572,6 +593,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Throw;
     private readonly InputAction m_Player_DoorInteract;
     private readonly InputAction m_Player_OpenPauseMenu;
+    private readonly InputAction m_Player_UICanvas;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -615,6 +637,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/OpenPauseMenu".
         /// </summary>
         public InputAction @OpenPauseMenu => m_Wrapper.m_Player_OpenPauseMenu;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/UICanvas".
+        /// </summary>
+        public InputAction @UICanvas => m_Wrapper.m_Player_UICanvas;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -665,6 +691,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @OpenPauseMenu.started += instance.OnOpenPauseMenu;
             @OpenPauseMenu.performed += instance.OnOpenPauseMenu;
             @OpenPauseMenu.canceled += instance.OnOpenPauseMenu;
+            @UICanvas.started += instance.OnUICanvas;
+            @UICanvas.performed += instance.OnUICanvas;
+            @UICanvas.canceled += instance.OnUICanvas;
         }
 
         /// <summary>
@@ -700,6 +729,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @OpenPauseMenu.started -= instance.OnOpenPauseMenu;
             @OpenPauseMenu.performed -= instance.OnOpenPauseMenu;
             @OpenPauseMenu.canceled -= instance.OnOpenPauseMenu;
+            @UICanvas.started -= instance.OnUICanvas;
+            @UICanvas.performed -= instance.OnUICanvas;
+            @UICanvas.canceled -= instance.OnUICanvas;
         }
 
         /// <summary>
@@ -822,5 +854,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnOpenPauseMenu(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "UICanvas" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnUICanvas(InputAction.CallbackContext context);
     }
 }
