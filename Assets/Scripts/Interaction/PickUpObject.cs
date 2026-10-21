@@ -7,6 +7,7 @@ public class PickUpObject : MonoBehaviour
 {
     private Rigidbody rb;
 
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -40,4 +41,6 @@ public class PickUpObject : MonoBehaviour
         rb.angularVelocity = Vector3.zero;
         rb.AddForce(impulse, ForceMode.Impulse);
     }
+
+   
 }
