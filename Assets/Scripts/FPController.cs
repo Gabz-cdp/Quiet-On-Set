@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -51,17 +50,7 @@ public class FPController : MonoBehaviour
     public float throwForce = 10f;
     public float throwUpwardBoost = 1f;
 
-
-    //UI FOR INTERACTABLE OBJECTS
-    public GameObject Poloroid;
-    public GameObject MissingPoster;
-    public GameObject TimeCard;
-    public Canvas UICanvas;
-
-    //Player interactions
-    private PlayerInput playerInput;
-    private GameObject targetObject;
-
+  
 
     private CharacterController controller;
     private Vector2 moveInput;
@@ -85,10 +74,6 @@ public class FPController : MonoBehaviour
         OpenDoorCrossHair.gameObject.SetActive(false);
         OpenDoorText.enabled = false;
         CloseDoorCrossHair.gameObject.SetActive(false);
-
-        //calling the player and the player interactions
-        targetObject = GameObject.Find("Player");
-        playerInput = GetComponent<PlayerInput>();
 
     }
     private void Update()
@@ -331,15 +316,6 @@ public class FPController : MonoBehaviour
                 {
                     pickUp.PickUp(holdPoint);
                     heldObject = pickUp;
-
-                    UICanvas.enabled = true;
-
-                    if(context.performed)
-                    {
-                        ViewTimeCard();
-                        //ViewPoster();
-                        //ViewPhoto();
-                    }
                 }
             }
         }
@@ -348,21 +324,6 @@ public class FPController : MonoBehaviour
             heldObject.Drop();
             heldObject = null;
         }
-    }
-
-    private void ViewTimeCard()
-    {
-        TimeCard.SetActive(true);
-    }
-
-    public void ViewPoster()
-    {
-        MissingPoster.SetActive(true);
-    }
-
-    public void ViewPhoto()
-    {
-        Poloroid.SetActive(true);
     }
 
     public void OnThrow(InputAction.CallbackContext context)
