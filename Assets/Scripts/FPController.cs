@@ -50,6 +50,8 @@ public class FPController : MonoBehaviour
     public float throwForce = 10f;
     public float throwUpwardBoost = 1f;
 
+  
+
     private CharacterController controller;
     private Vector2 moveInput;
     private Vector2 lookInput;
