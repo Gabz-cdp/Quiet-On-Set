@@ -9,6 +9,7 @@ public class MainMenuUIManager : MonoBehaviour
     public float rotationSpeed = 1f;
     private bool isRotating = false;
     public GameObject[] UIElements;
+    public GameObject[] UIOptions;
 
     public void LoadScene(string SceneName)
     {
@@ -33,7 +34,7 @@ public class MainMenuUIManager : MonoBehaviour
     {
         if (!isRotating)
         {
-            StartCoroutine(RotateCameraCoroutine(270f));
+            StartCoroutine(RotateCameraCoroutineBack(270f));
         }
     }
 
@@ -60,5 +61,42 @@ public class MainMenuUIManager : MonoBehaviour
 
         mainCamera.transform.rotation = endRotation;
         isRotating = false;
+
+        foreach (GameObject UIelement in UIOptions)
+        {
+            bool currentState = UIelement.activeSelf;
+            UIelement.SetActive(!currentState);
+        }
+    }
+
+    private IEnumerator RotateCameraCoroutineBack(float angle)
+    {
+        foreach (GameObject UIelement in UIOptions)
+        {
+            bool currentState = UIelement.activeSelf;
+            UIelement.SetActive(!currentState);
+        }
+
+        isRotating = true;
+
+        Quaternion startRotation = mainCamera.transform.rotation; //Initial Rotation
+        Quaternion endRotation = startRotation * Quaternion.Euler(0, -angle, 0); //Target Rotation
+
+        float rotationProgress = 0f;
+        while (rotationProgress < 1f)
+        {
+            rotationProgress += Time.deltaTime * (rotationSpeed / angle);
+            mainCamera.transform.rotation = Quaternion.Lerp(startRotation, endRotation, rotationProgress);
+            yield return null;
+        }
+
+        mainCamera.transform.rotation = endRotation;
+        isRotating = false;
+
+        foreach (GameObject UIelement in UIElements)
+        {
+            bool currentState = UIelement.activeSelf;
+            UIelement.SetActive(!currentState);
+        }
     }
 }

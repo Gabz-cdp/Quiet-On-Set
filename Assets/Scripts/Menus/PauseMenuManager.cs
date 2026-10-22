@@ -8,6 +8,9 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuManager : MonoBehaviour
 {
+    public GameObject[] UIElements;
+    public GameObject[] UIControls;
+
     public GameObject container;
 
     public void OnEscape (InputAction.CallbackContext context)
@@ -30,5 +33,31 @@ public class PauseMenuManager : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void Controls()
+    {      
+        foreach (GameObject UIelement in UIElements)
+        {
+            UIelement.SetActive(false);
+        }
+
+        foreach (GameObject UIelement in UIControls)
+        {
+            UIelement.SetActive(true);
+        }
+    }
+
+    public void Back()
+    {
+        foreach (GameObject UIelement in UIElements)
+        {
+            UIelement.SetActive(true);
+        }
+
+        foreach (GameObject UIelement in UIControls)
+        {
+            UIelement.SetActive(false);
+        }
     }
 }

@@ -50,7 +50,8 @@ public class FPController : MonoBehaviour
     public float throwForce = 10f;
     public float throwUpwardBoost = 1f;
 
-  
+    
+
 
     private CharacterController controller;
     private Vector2 moveInput;
@@ -100,6 +101,8 @@ public class FPController : MonoBehaviour
             }
         }
 
+
+
         //==DOOR ANIMATION==
         if (Physics.Raycast(ray, out hit, OpenDoorRange))
         {
@@ -124,6 +127,8 @@ public class FPController : MonoBehaviour
             }
         }
        
+
+
 
         //Clear text if not looking at an object
         pickupText.text = ""; //clears text when raycast isnt hitting the object
@@ -209,7 +214,12 @@ public class FPController : MonoBehaviour
                     }*/
                 }
             }
+
+
+
         }
+
+
     }
 
     public void OnMove(InputAction.CallbackContext context)

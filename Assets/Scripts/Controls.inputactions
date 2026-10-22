@@ -79,9 +79,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "UICanvas",
+                    "name": "TV ON NPC Dialogue",
                     "type": "Button",
-                    "id": "0e85b6fb-cde9-4aa8-8a7d-a3579ca58bbc",
+                    "id": "29a189ff-d97f-43cc-9259-5cd4026f5c36",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -366,12 +366,12 @@
                 },
                 {
                     "name": "",
-                    "id": "6c071b28-a6f3-4cfe-b10e-154e79ec55a9",
+                    "id": "6e08899c-88fb-4344-824b-1ac6a20e5812",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "UICanvas",
+                    "groups": ";Keyboard + Mouse",
+                    "action": "TV ON NPC Dialogue",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -165,9 +165,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""UICanvas"",
+                    ""name"": ""TV ON NPC Dialogue"",
                     ""type"": ""Button"",
-                    ""id"": ""0e85b6fb-cde9-4aa8-8a7d-a3579ca58bbc"",
+                    ""id"": ""29a189ff-d97f-43cc-9259-5cd4026f5c36"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -452,12 +452,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""6c071b28-a6f3-4cfe-b10e-154e79ec55a9"",
+                    ""id"": ""6e08899c-88fb-4344-824b-1ac6a20e5812"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""UICanvas"",
+                    ""groups"": "";Keyboard + Mouse"",
+                    ""action"": ""TV ON NPC Dialogue"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -504,7 +504,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Throw = m_Player.FindAction("Throw", throwIfNotFound: true);
         m_Player_DoorInteract = m_Player.FindAction("DoorInteract", throwIfNotFound: true);
         m_Player_OpenPauseMenu = m_Player.FindAction("OpenPauseMenu", throwIfNotFound: true);
-        m_Player_UICanvas = m_Player.FindAction("UICanvas", throwIfNotFound: true);
+        m_Player_TVONNPCDialogue = m_Player.FindAction("TV ON NPC Dialogue", throwIfNotFound: true);
     }
 
     ~@Controls()
@@ -593,7 +593,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Throw;
     private readonly InputAction m_Player_DoorInteract;
     private readonly InputAction m_Player_OpenPauseMenu;
-    private readonly InputAction m_Player_UICanvas;
+    private readonly InputAction m_Player_TVONNPCDialogue;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -638,9 +638,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @OpenPauseMenu => m_Wrapper.m_Player_OpenPauseMenu;
         /// <summary>
-        /// Provides access to the underlying input action "Player/UICanvas".
+        /// Provides access to the underlying input action "Player/TVONNPCDialogue".
         /// </summary>
-        public InputAction @UICanvas => m_Wrapper.m_Player_UICanvas;
+        public InputAction @TVONNPCDialogue => m_Wrapper.m_Player_TVONNPCDialogue;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -691,9 +691,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @OpenPauseMenu.started += instance.OnOpenPauseMenu;
             @OpenPauseMenu.performed += instance.OnOpenPauseMenu;
             @OpenPauseMenu.canceled += instance.OnOpenPauseMenu;
-            @UICanvas.started += instance.OnUICanvas;
-            @UICanvas.performed += instance.OnUICanvas;
-            @UICanvas.canceled += instance.OnUICanvas;
+            @TVONNPCDialogue.started += instance.OnTVONNPCDialogue;
+            @TVONNPCDialogue.performed += instance.OnTVONNPCDialogue;
+            @TVONNPCDialogue.canceled += instance.OnTVONNPCDialogue;
         }
 
         /// <summary>
@@ -729,9 +729,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @OpenPauseMenu.started -= instance.OnOpenPauseMenu;
             @OpenPauseMenu.performed -= instance.OnOpenPauseMenu;
             @OpenPauseMenu.canceled -= instance.OnOpenPauseMenu;
-            @UICanvas.started -= instance.OnUICanvas;
-            @UICanvas.performed -= instance.OnUICanvas;
-            @UICanvas.canceled -= instance.OnUICanvas;
+            @TVONNPCDialogue.started -= instance.OnTVONNPCDialogue;
+            @TVONNPCDialogue.performed -= instance.OnTVONNPCDialogue;
+            @TVONNPCDialogue.canceled -= instance.OnTVONNPCDialogue;
         }
 
         /// <summary>
@@ -855,11 +855,11 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnOpenPauseMenu(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "UICanvas" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "TV ON NPC Dialogue" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnUICanvas(InputAction.CallbackContext context);
+        void OnTVONNPCDialogue(InputAction.CallbackContext context);
     }
 }
