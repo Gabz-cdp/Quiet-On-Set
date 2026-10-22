@@ -14,6 +14,13 @@ public class DialogueManager : MonoBehaviour
     // Public property so the player script knows if a conversation is happening
     public bool IsDialogueActive { get; private set; }
 
+    public int frameOpened;
+
+
+    [Header("Timing")]
+    public float inputCooldown = 0.25f; // Minimum time required between line changes
+    public float nextAllowedInputTime;
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -29,20 +36,26 @@ public class DialogueManager : MonoBehaviour
         IsDialogueActive = true;
         dialoguePanel.SetActive(true);
 
+        frameOpened = Time.frameCount;
+
         DisplayCurrentLine();
     }
 
     public void AdvanceDialogue()
     {
+        // If the player presses E before the cooldown is over, do nothing
+        if (Time.time < nextAllowedInputTime) return;
+
         currentLineIndex++;
 
-        // If we ran out of lines, close the UI
         if (currentLineIndex >= currentLines.Length)
         {
             CloseDialogue();
         }
         else
         {
+            // Reset the timer for the next line
+            nextAllowedInputTime = Time.time + inputCooldown;
             DisplayCurrentLine();
         }
     }
@@ -55,7 +68,7 @@ public class DialogueManager : MonoBehaviour
     public void CloseDialogue()
     {
         IsDialogueActive = false;
-        dialoguePanel.SetActive(false);
+        //dialoguePanel.SetActive(false);
     }
 }
 

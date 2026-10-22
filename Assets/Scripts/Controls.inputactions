@@ -79,7 +79,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "TV ON NPC Dialogue",
+                    "name": "NPCINTERACT",
                     "type": "Button",
                     "id": "29a189ff-d97f-43cc-9259-5cd4026f5c36",
                     "expectedControlType": "",
@@ -371,7 +371,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard + Mouse",
-                    "action": "TV ON NPC Dialogue",
+                    "action": "NPCINTERACT",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
