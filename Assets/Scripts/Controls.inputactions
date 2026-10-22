@@ -77,6 +77,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "TV ON NPC Dialogue",
+                    "type": "Button",
+                    "id": "29a189ff-d97f-43cc-9259-5cd4026f5c36",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -352,6 +361,17 @@
                     "processors": "",
                     "groups": ";Keyboard + Mouse",
                     "action": "OpenPauseMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6e08899c-88fb-4344-824b-1ac6a20e5812",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard + Mouse",
+                    "action": "TV ON NPC Dialogue",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
