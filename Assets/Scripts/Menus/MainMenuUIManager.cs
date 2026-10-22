@@ -99,4 +99,9 @@ public class MainMenuUIManager : MonoBehaviour
             UIelement.SetActive(!currentState);
         }
     }
+
+    public void Fullscreen()
+    {
+        Screen.fullScreen = true;
+    }
 }
