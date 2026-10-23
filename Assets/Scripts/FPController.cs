@@ -170,7 +170,7 @@ public class FPController : MonoBehaviour
            // if (hit.collider.TryGetComponent<NPC>(out NPC npc))
            if (hit.collider.CompareTag("NPC"))
             {
-                pickupText.text = "Talk press [E]";
+                //pickupText.text = "Talk press [E]";
 
                 hit.collider.GetComponent<NPC>().TriggerDialogue();
             }

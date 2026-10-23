@@ -3,7 +3,7 @@ using static UnityEditor.Rendering.MaterialUpgrader;
 
 public class NPC : MonoBehaviour
 {
-    public int WaitForSeconds = 5;
+   // public int WaitForSeconds = 5;
 
     public float typeSpeed = 0.05f;
 

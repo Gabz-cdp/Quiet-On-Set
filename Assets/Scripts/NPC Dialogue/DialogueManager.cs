@@ -18,7 +18,7 @@ public class DialogueManager : MonoBehaviour
 
 
     [Header("Timing")]
-    public float inputCooldown = 0.25f; // Minimum time required between line changes
+    public float inputCooldown = 1f; // Minimum time required between line changes
     public float nextAllowedInputTime;
 
     private void Awake()
@@ -26,7 +26,7 @@ public class DialogueManager : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
-        dialoguePanel.SetActive(false);
+        //dialoguePanel.SetActive(false);
     }
 
     public void StartDialogue(string[] lines)
@@ -34,7 +34,7 @@ public class DialogueManager : MonoBehaviour
         currentLines = lines;
         currentLineIndex = 0;
         IsDialogueActive = true;
-        dialoguePanel.SetActive(true);
+        //dialoguePanel.SetActive(true);
 
         frameOpened = Time.frameCount;
 
