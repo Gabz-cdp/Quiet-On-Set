@@ -2,6 +2,10 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using TMPro;
+using UnityEngine.Audio;
+using UnityEngine.UI;
+
 
 public class MainMenuUIManager : MonoBehaviour
 {
@@ -10,6 +14,10 @@ public class MainMenuUIManager : MonoBehaviour
     private bool isRotating = false;
     public GameObject[] UIElements;
     public GameObject[] UIOptions;
+
+    //Audio
+    public AudioMixer mixer;
+    public Slider VolumeSlider;
 
     public void LoadScene(string SceneName)
     {
@@ -28,6 +36,9 @@ public class MainMenuUIManager : MonoBehaviour
         {
             StartCoroutine(RotateCameraCoroutine(90f));
         }
+
+        VolumeSlider.onValueChanged.AddListener(SetVolume);
+        LoadSettings();
     }
 
     public void RotateCameraBack()
@@ -103,5 +114,19 @@ public class MainMenuUIManager : MonoBehaviour
     public void Fullscreen()
     {
         Screen.fullScreen = true;
+    }
+
+    public void LoadSettings()
+    {
+        float volume = PlayerPrefs.GetFloat("Volume");
+
+        SetVolume(volume);
+    }
+
+    public void SetVolume(float value)
+    {
+        mixer.SetFloat("Volume", value);
+        VolumeSlider.value = value;
+        PlayerPrefs.SetFloat("Volume", value);
     }
 }

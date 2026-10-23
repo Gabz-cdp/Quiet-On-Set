@@ -3956,6 +3956,8 @@ MonoBehaviour:
   - {fileID: 649772018}
   UIOptions:
   - {fileID: 184966250}
+  mixer: {fileID: 24100000, guid: 8ffe18bcd96096f46a23ca2dcf17795e, type: 2}
+  VolumeSlider: {fileID: 309870271}
 --- !u!1001 &1797148713
 PrefabInstance:
   m_ObjectHideFlags: 0
