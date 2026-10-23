@@ -8,6 +8,7 @@ TagManager:
   - InteractableObjects
   - canPickUp
   - Door
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - UI
   - PickUp
   - Usable
-  - 
+  - NPC LAYER
   - 
   - 
   - 

@@ -50,7 +50,11 @@ public class FPController : MonoBehaviour
     public float throwForce = 10f;
     public float throwUpwardBoost = 1f;
 
-    
+    [Header("NPC Interaction Settings")]
+    public float interactionDistance = 5f;
+    public LayerMask npcLayer; // Put your NPCs on a specific layer to avoid hitting walls
+    public Transform playerCamera; // Drag your main camera here if first-person, or use transform if 3D third-person
+
 
 
     private CharacterController controller;
@@ -143,6 +147,56 @@ public class FPController : MonoBehaviour
         OpenDoorCrossHair.gameObject.SetActive(false); //disables the crosshair for the door*/
         
     }
+
+
+    public void OnNPCInteract(InputAction.CallbackContext context)
+    {
+        // 1. If dialogue is already open, use E to advance lines
+        if (DialogueManager.Instance.IsDialogueActive)
+        {
+            DialogueManager.Instance.AdvanceDialogue();
+            return;
+        }
+
+        // If dialogue is not open, use Raycast to look for an NPC
+        // Use camera direction for First-Person, or transform.forward for top-down/3D Third-Person
+        Vector3 rayOrigin = playerCamera != null ? playerCamera.position : transform.position;
+        Vector3 rayDirection = playerCamera != null ? playerCamera.forward : transform.forward;
+
+        RaycastHit hit;
+        if (Physics.Raycast(rayOrigin, rayDirection, out hit, interactionDistance, npcLayer))
+        {
+            // Check if the object we hit has the NPC component
+           // if (hit.collider.TryGetComponent<NPC>(out NPC npc))
+           if (hit.collider.CompareTag("NPC"))
+            {
+                hit.collider.GetComponent<NPC>().TriggerDialogue();
+            }
+        }
+    }
+
+    public void ExecuteInteraction()
+    {
+        // 1. Advance dialogue if it's already open
+        if (DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueActive)
+        {
+            DialogueManager.Instance.AdvanceDialogue();
+            return; // Stop here so it doesn't run the raycast code below!
+        }
+
+        // 2. Perform raycast ONLY if dialogue wasn't already open
+        if (playerCamera == null) return;
+
+        RaycastHit hit;
+        if (Physics.Raycast(playerCamera.position, playerCamera.forward, out hit, interactionDistance, npcLayer))
+        {
+            if (hit.collider.TryGetComponent<NPC>(out NPC npc))
+            {
+                npc.TriggerDialogue();
+            }
+        }
+    }
+
 
     public void OnInteract(InputAction.CallbackContext context)
     {
