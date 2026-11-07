@@ -113,7 +113,7 @@ public class MainMenuUIManager : MonoBehaviour
 
     public void Fullscreen()
     {
-        Screen.fullScreen = true;
+        Screen.fullScreen = false;
     }
 
     public void LoadSettings()
