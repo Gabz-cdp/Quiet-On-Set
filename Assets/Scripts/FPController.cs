@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class FPController : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class FPController : MonoBehaviour
     public Transform holdPoint;
     private PickUpObject heldObject;
     public TMP_Text pickupText; //Pickup text
-    public GameObject circleHair; //Crosshair trigger to show when an object/door is in range
+    public GameObject circleHair; //Crosshair trigger to show when an object is in range
 
     [Header("Open Door")]
     public TMP_Text OpenDoorText; //Open door text
@@ -45,6 +46,17 @@ public class FPController : MonoBehaviour
 
     //[Header("Rotation")]
     //public float rotatespeed = 3f;
+
+    [Header("Read Object")]
+    public float readRange = 3f;
+    public TMP_Text readText; //Pickup text
+    public GameObject readCrossHair; //Crosshair trigger to show when an object is in range
+    public Canvas UICanvas;
+    public GameObject BackgroundPanel;
+    public GameObject TessaTimeCard;
+    public GameObject RubicsCubeTimeCard;
+    public GameObject CameraManTimeCard;
+    public GameObject MissingGirlTimeCard;
 
     [Header("Throw Settings")]
     public float throwForce = 10f;
@@ -389,6 +401,26 @@ public class FPController : MonoBehaviour
         {
             heldObject.Drop();
             heldObject = null;
+        }
+    }
+
+    public void OnRead(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, OpenDoorRange))
+            {
+                //Check if object is a timecard
+                if (hit.collider.CompareTag("Read"))
+                {
+                    //actives the UI canvas and the Background panel
+                    UICanvas.enabled = true;
+                    BackgroundPanel.gameObject.SetActive(true);
+                }
+            }
         }
     }
 

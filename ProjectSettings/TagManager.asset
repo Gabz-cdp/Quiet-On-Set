@@ -9,6 +9,7 @@ TagManager:
   - canPickUp
   - Door
   - NPC
+  - Read
   layers:
   - Default
   - TransparentFX
