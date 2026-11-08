@@ -35,11 +35,6 @@ public class PauseMenuManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void QuitToMainMenu(string SceneName)
-    {
-        SceneManager.LoadScene(SceneName);
-    }
-
     public void Controls()
     {      
         foreach (GameObject UIelement in UIElements)
