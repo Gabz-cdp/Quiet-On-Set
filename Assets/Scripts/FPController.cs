@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -20,12 +21,13 @@ public class FPController : MonoBehaviour
     public float CameraUpSpeed = 3f;
     private float originalMoveSpeed;
     public GameObject[] hiddenObjects;
-
+    public bool bIsInCamera;
 
     [Header("Crouch Settings")]
     public float crouchHeight = 1f;
     public float standHeight = 2f;
     public float crouchSpeed = 2.5f;
+    public bool bIsCrouch;
 
     [Header("Pickup Settings")]
     public float pickupRange = 3f;
@@ -68,7 +70,6 @@ public class FPController : MonoBehaviour
     public Transform playerCamera; // Drag your main camera here if first-person, or use transform if 3D third-person
 
 
-
     private CharacterController controller;
     private Vector2 moveInput;
     private Vector2 lookInput;
@@ -80,9 +81,9 @@ public class FPController : MonoBehaviour
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
-        
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        UnityEngine.Cursor.visible = false;
 
         originalMoveSpeed = moveSpeed;
 
@@ -96,6 +97,7 @@ public class FPController : MonoBehaviour
     private void Update()
     {
         HandleMovement();
+
         HandleLook();
 
         if (heldObject != null)
@@ -293,18 +295,15 @@ public class FPController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-        if(moveSpeed > 0.1)
+
+        if ((context.performed) && (!bIsInCamera) && (!bIsCrouch))
         {
             StartBobbing();
         }
-        else if(moveSpeed <= 0.1)
+        else if (context.canceled)
         {
             StopBobbing();
         }
-        /*if (context.performed)
-        {
-            StopBobbing();
-        }*/
     }
 
     public void OnLook(InputAction.CallbackContext context)
@@ -342,6 +341,7 @@ public class FPController : MonoBehaviour
     {
         if (context.performed)
         {
+            bIsInCamera = true;
             foreach (GameObject hiddenObject in hiddenObjects) 
             {
                 hiddenObject.SetActive(true);
@@ -351,6 +351,7 @@ public class FPController : MonoBehaviour
 
         if (context.canceled)
         {
+            bIsInCamera = false;
             foreach (GameObject hiddenObject in hiddenObjects)
             {
                 hiddenObject.SetActive(false);
@@ -366,11 +367,13 @@ public class FPController : MonoBehaviour
     {
         if (context.performed)
         {
+            bIsCrouch = true;
             controller.height = crouchHeight;
             moveSpeed = crouchSpeed;
         }
         else if (context.canceled)
         {
+            bIsCrouch = true;
             controller.height = standHeight;
             moveSpeed = originalMoveSpeed;
         }
@@ -411,17 +414,39 @@ public class FPController : MonoBehaviour
             Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, OpenDoorRange))
+            //Casts raycast to hit the game object
+            if (Physics.Raycast(ray, out hit, readRange))
             {
                 //Check if object is a timecard
                 if (hit.collider.CompareTag("Read"))
                 {
-                    //actives the UI canvas and the Background panel
-                    UICanvas.enabled = true;
-                    BackgroundPanel.gameObject.SetActive(true);
+                    //Pause the screen when interacting with readable objects
+                    if (context.performed)
+                    {
+                        Debug.Log("Read Objects Working");
+
+                        //actives the UI canvas and the Background panel
+                        UICanvas.enabled = true;
+                        BackgroundPanel.gameObject.SetActive(true);
+
+                        //==TIME CARDS==
+                        CameraManTimeCard.SetActive(true);
+                        MissingGirlTimeCard.SetActive(true);
+                        TessaTimeCard.SetActive(true);
+                        RubicsCubeTimeCard.SetActive(true);
+                    }
                 }
             }
         }
+    }
+
+    public void OnClose()
+    {
+        //Unpause the screen when interacting with readable objects
+        CameraManTimeCard.SetActive(false);
+        MissingGirlTimeCard.SetActive(false);
+        TessaTimeCard.SetActive(false);
+        RubicsCubeTimeCard.SetActive(false);
     }
 
     public void OnThrow(InputAction.CallbackContext context)
@@ -448,10 +473,12 @@ public class FPController : MonoBehaviour
         void StartBobbing()
     {
         Camera.GetComponent<Animator>().Play("HeadBobbing");
+        Debug.Log("Start Bobbing");
     }
 
     void StopBobbing()
     {
         Camera.GetComponent<Animator>().Play("New State");
+        Debug.Log("Stop Bobbing");
     }
 }

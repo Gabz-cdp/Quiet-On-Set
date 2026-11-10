@@ -174,7 +174,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Read"",
+                    ""name"": ""OnRead"",
                     ""type"": ""Button"",
                     ""id"": ""67cf07a3-cf80-402d-b3c9-0efd46fb5345"",
                     ""expectedControlType"": """",
@@ -477,7 +477,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Read"",
+                    ""action"": ""OnRead"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -525,7 +525,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_DoorInteract = m_Player.FindAction("DoorInteract", throwIfNotFound: true);
         m_Player_OpenPauseMenu = m_Player.FindAction("OpenPauseMenu", throwIfNotFound: true);
         m_Player_NPCINTERACT = m_Player.FindAction("NPCINTERACT", throwIfNotFound: true);
-        m_Player_Read = m_Player.FindAction("Read", throwIfNotFound: true);
+        m_Player_OnRead = m_Player.FindAction("OnRead", throwIfNotFound: true);
     }
 
     ~@Controls()
@@ -615,7 +615,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_DoorInteract;
     private readonly InputAction m_Player_OpenPauseMenu;
     private readonly InputAction m_Player_NPCINTERACT;
-    private readonly InputAction m_Player_Read;
+    private readonly InputAction m_Player_OnRead;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -664,9 +664,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @NPCINTERACT => m_Wrapper.m_Player_NPCINTERACT;
         /// <summary>
-        /// Provides access to the underlying input action "Player/Read".
+        /// Provides access to the underlying input action "Player/OnRead".
         /// </summary>
-        public InputAction @Read => m_Wrapper.m_Player_Read;
+        public InputAction @OnRead => m_Wrapper.m_Player_OnRead;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -720,9 +720,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @NPCINTERACT.started += instance.OnNPCINTERACT;
             @NPCINTERACT.performed += instance.OnNPCINTERACT;
             @NPCINTERACT.canceled += instance.OnNPCINTERACT;
-            @Read.started += instance.OnRead;
-            @Read.performed += instance.OnRead;
-            @Read.canceled += instance.OnRead;
+            @OnRead.started += instance.OnOnRead;
+            @OnRead.performed += instance.OnOnRead;
+            @OnRead.canceled += instance.OnOnRead;
         }
 
         /// <summary>
@@ -761,9 +761,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @NPCINTERACT.started -= instance.OnNPCINTERACT;
             @NPCINTERACT.performed -= instance.OnNPCINTERACT;
             @NPCINTERACT.canceled -= instance.OnNPCINTERACT;
-            @Read.started -= instance.OnRead;
-            @Read.performed -= instance.OnRead;
-            @Read.canceled -= instance.OnRead;
+            @OnRead.started -= instance.OnOnRead;
+            @OnRead.performed -= instance.OnOnRead;
+            @OnRead.canceled -= instance.OnOnRead;
         }
 
         /// <summary>
@@ -894,11 +894,11 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnNPCINTERACT(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Read" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "OnRead" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnRead(InputAction.CallbackContext context);
+        void OnOnRead(InputAction.CallbackContext context);
     }
 }
