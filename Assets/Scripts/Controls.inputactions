@@ -86,6 +86,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "OnRead",
+                    "type": "Button",
+                    "id": "67cf07a3-cf80-402d-b3c9-0efd46fb5345",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -372,6 +381,17 @@
                     "processors": "",
                     "groups": ";Keyboard + Mouse",
                     "action": "NPCINTERACT",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dbddaa32-8057-4c8b-9462-78f22a7b9952",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OnRead",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
