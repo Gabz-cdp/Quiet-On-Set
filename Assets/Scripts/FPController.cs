@@ -434,13 +434,36 @@ public class FPController : MonoBehaviour
 
                         //actives the UI canvas and the Background panel
                         UICanvas.enabled = true;
-                        BackgroundPanel.gameObject.SetActive(true);
+                        //BackgroundPanel.gameObject.SetActive(true);
 
                         //==TIME CARDS==
-                        CameraManTimeCard.SetActive(true);
-                        MissingGirlTimeCard.SetActive(true);
-                        TessaTimeCard.SetActive(true);
-                        RubicsCubeTimeCard.SetActive(true);
+                        if(CameraManTimeCard)
+                        {
+                            bool currentState = CameraManTimeCard.activeSelf;
+                            CameraManTimeCard.SetActive(!currentState);
+                            Debug.Log("Camera Man Time Card Working");
+                        }
+
+                        /*if (MissingGirlTimeCard)
+                        {
+                            bool currentState = MissingGirlTimeCard.activeSelf;
+                            MissingGirlTimeCard.SetActive(!currentState);
+                            Debug.Log("Camera Man Time Card Working");
+                        }
+
+                        if (CameraManTimeCard)
+                        {
+                            bool currentState = TessaTimeCard.activeSelf;
+                            TessaTimeCard.SetActive(!currentState);
+                            Debug.Log("Camera Man Time Card Working");
+                        }
+
+                        if (RubicsCubeTimeCard)
+                        {
+                            bool currentState = RubicsCubeTimeCard.activeSelf;
+                            RubicsCubeTimeCard.SetActive(!currentState);
+                            Debug.Log("Camera Man Time Card Working");
+                        }*/
                     }
                 }
             }

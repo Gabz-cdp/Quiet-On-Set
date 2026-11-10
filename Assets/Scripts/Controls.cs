@@ -476,7 +476,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard + Mouse"",
                     ""action"": ""OnRead"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false

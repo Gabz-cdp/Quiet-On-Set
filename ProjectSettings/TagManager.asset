@@ -10,11 +10,12 @@ TagManager:
   - Door
   - NPC
   - Read
+  - InteractiveObject
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Interact
   - Water
   - UI
   - PickUp

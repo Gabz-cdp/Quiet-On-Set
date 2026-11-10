@@ -1,0 +1,55 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace KeySystem //Keeps everyhting related to the Key in the Key System
+{
+    public class KeyDoorController : MonoBehaviour
+    {
+        private Animator doorAnim;
+        private bool doorOpen = false;
+
+        [Header("Animation Names")]
+        [SerializeField] private string openAnimationName = "DoorOpen";
+        [SerializeField] private string closeAnimationName = "DoorClose";
+
+        [SerializeField] private int timeToShowUI = 1;
+        [SerializeField] private GameObject showDoorLockedUI = null;
+
+        [SerializeField] private KeyInventory _keyInventory = null;
+        [SerializeField] private bool pauseInteraction = false;
+
+        private void Awake()
+        {
+            doorAnim = gameObject.GetComponent<Animator>();
+        }
+
+        public void PlayAnimation()
+        {
+            if(_keyInventory.hasKeyCard)
+            {
+                if (!doorOpen && !pauseInteraction)
+                {
+                    doorAnim.Play(openAnimationName, 0, 0.0f);
+                    doorOpen = true;
+                }
+                else if(doorOpen && !pauseInteraction)
+                {
+                    doorAnim.Play(closeAnimationName, 0, 0.0f);
+                    doorOpen= false;
+                }
+            }
+            else
+            {
+                StartCoroutine(ShowDoorLocked());
+            }
+        }
+
+        IEnumerator ShowDoorLocked()
+        {
+            showDoorLockedUI.SetActive(true);
+            yield return new WaitForSeconds(timeToShowUI);
+            showDoorLockedUI.SetActive(false);
+        }
+    }
+}
