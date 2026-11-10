@@ -38668,8 +38668,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1612952636}
         m_TargetAssemblyTypeName: PauseMenuManager, Assembly-CSharp
-        m_MethodName: Quit
-        m_Mode: 1
+        m_MethodName: QuitToMainMenu
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -140209,6 +140209,7 @@ MonoBehaviour:
   lookSensitivity: 0.3
   verticalLookLimit: 90
   CameraUpSpeed: 3
+  originalMoveSpeed: 0
   hiddenObjects:
   - {fileID: 1753334209}
   - {fileID: 307580571}
@@ -140471,12 +140472,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 327fd6c7c7c41b0449b812e8dbee5d79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ReadableObjects
-  UIElements: []
-  UIControls: []
-  CameraManTimeCard: {fileID: 1897099304}
-  MissingGirlTimeCard: {fileID: 121274227}
-  TessaTimeCard: {fileID: 1833254854}
-  RubicsCubeTimeCard: {fileID: 1820050897}
 --- !u!1 &1343136740
 GameObject:
   m_ObjectHideFlags: 0
@@ -229487,7 +229482,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'QUIT
+  m_text: 'MAIN MENU
 
 '
   m_isRightToLeft: 0

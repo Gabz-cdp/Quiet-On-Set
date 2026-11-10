@@ -19,9 +19,11 @@ public class FPController : MonoBehaviour
 
     [Header("Reveal Setting")]
     public float CameraUpSpeed = 3f;
-    private float originalMoveSpeed;
+    public float originalMoveSpeed;
     public GameObject[] hiddenObjects;
     public bool bIsInCamera;
+    public bool hasCamera = false;
+    
 
     [Header("Crouch Settings")]
     public float crouchHeight = 1f;
@@ -77,6 +79,7 @@ public class FPController : MonoBehaviour
     private float verticalRotation = 0f;
     private Vector2 inputVector;
     public GameObject Camera;
+
 
     private void Awake()
     {
@@ -339,27 +342,31 @@ public class FPController : MonoBehaviour
     //Camera and Hidden Objects
     public void OnReveal(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (hasCamera == true)
         {
-            bIsInCamera = true;
-            foreach (GameObject hiddenObject in hiddenObjects) 
+            if (context.performed)
             {
-                hiddenObject.SetActive(true);
+                bIsInCamera = true;
+                foreach (GameObject hiddenObject in hiddenObjects)
+                {
+                    hiddenObject.SetActive(true);
+                }
+                moveSpeed = CameraUpSpeed;
             }
-            moveSpeed = CameraUpSpeed;
-        }
 
-        if (context.canceled)
-        {
-            bIsInCamera = false;
-            foreach (GameObject hiddenObject in hiddenObjects)
+            if (context.canceled)
             {
-                hiddenObject.SetActive(false);
+                bIsInCamera = false;
+                foreach (GameObject hiddenObject in hiddenObjects)
+                {
+                    hiddenObject.SetActive(false);
+                }
+                moveSpeed = originalMoveSpeed;
             }
-            moveSpeed = originalMoveSpeed;
-        }
 
-        StopBobbing();
+            StopBobbing();
+
+        }
     }
 
 
@@ -470,13 +477,13 @@ public class FPController : MonoBehaviour
             }
         }*/
 
-        void StartBobbing()
+    void StartBobbing()
     {
         Camera.GetComponent<Animator>().Play("HeadBobbing");
         Debug.Log("Start Bobbing");
     }
 
-    void StopBobbing()
+    public void StopBobbing()
     {
         Camera.GetComponent<Animator>().Play("New State");
         Debug.Log("Stop Bobbing");
