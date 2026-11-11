@@ -404,6 +404,10 @@ public class FPController : MonoBehaviour
                 {
                     pickUp.PickUp(holdPoint);
                     heldObject = pickUp;
+                    if(pickUp.CompareTag("CameraObject"))
+                    {
+                        hasCamera = true; 
+                    }
                 }
             }
         }
@@ -411,6 +415,7 @@ public class FPController : MonoBehaviour
         {
             heldObject.Drop();
             heldObject = null;
+            hasCamera = false;
         }
     }
 
