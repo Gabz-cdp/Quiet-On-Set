@@ -95,6 +95,8 @@ public class FPController : MonoBehaviour
         OpenDoorCrossHair.gameObject.SetActive(false);
         OpenDoorText.enabled = false;
         CloseDoorCrossHair.gameObject.SetActive(false);
+        readCrossHair.gameObject.SetActive(false);
+        readText.enabled = false;
 
     }
     private void Update()
@@ -124,7 +126,7 @@ public class FPController : MonoBehaviour
 
 
 
-        //==DOOR ANIMATION==
+        /*//==DOOR ANIMATION==
         if (Physics.Raycast(ray, out hit, OpenDoorRange))
         {
             //Play the "DoorOpen" animation if the object is a door
@@ -217,7 +219,7 @@ public class FPController : MonoBehaviour
     }
 
 
-    public void OnInteract(InputAction.CallbackContext context)
+    /*public void OnInteract(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
@@ -284,7 +286,7 @@ public class FPController : MonoBehaviour
                     {
                         doorAnimator.SetTrigger("DoorOpen");
                         doorAnimator.SetBool("IsOpen", true);
-                    }*/
+                    }
                 }
             }
 
@@ -293,7 +295,7 @@ public class FPController : MonoBehaviour
         }
 
 
-    }
+    }*/
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -432,10 +434,21 @@ public class FPController : MonoBehaviour
                 //Check if object is a timecard
                 if (hit.collider.CompareTag("Read"))
                 {
+                    //enables the read crosshairs if the object is readable
+                    readText.enabled = true;
+                    readText.text = "Read [R]";
+                    readCrossHair.gameObject.SetActive(true);
+                    return;
+
                     //Pause the screen when interacting with readable objects
                     if (context.performed)
                     {
                         Debug.Log("Read Objects Working");
+
+                        //disable the crosshair and crosshair text
+                        readText.enabled = false;
+                        readCrossHair.gameObject.SetActive(false);
+                        return;
 
                         //actives the UI canvas and the Background panel
                         UICanvas.enabled = true;
@@ -494,16 +507,6 @@ public class FPController : MonoBehaviour
         heldObject.Throw(impulse);
         heldObject = null;
     }
-
-        /*public void OnRotate(InputAction.CallbackContext context)
-        {
-            if (!context.performed) return;
-            if (heldObject != null)
-            {
-                //heldObject.transform.rotation += context.ReadValue<Vector2>() * rotatespeed;
-                transform.rotation *= Quaternion.Euler(inputVector.y, inputVector.x, 0);
-            }
-        }*/
 
     void StartBobbing()
     {

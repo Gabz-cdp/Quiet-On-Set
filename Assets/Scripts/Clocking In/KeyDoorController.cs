@@ -17,11 +17,19 @@ namespace KeySystem //Keeps everyhting related to the Key in the Key System
         [SerializeField] private GameObject showDoorLockedUI = null;
 
         [SerializeField] private KeyInventory _keyInventory = null;
+        [SerializeField] private int waitTimer = 1;
         [SerializeField] private bool pauseInteraction = false;
 
         private void Awake()
         {
             doorAnim = gameObject.GetComponent<Animator>();
+        }
+
+        private IEnumerator PauseDoorInteraction()
+        {
+            pauseInteraction = true;
+            yield return new WaitForSeconds(waitTimer);
+            pauseInteraction = false;
         }
 
         public void PlayAnimation()
@@ -32,11 +40,13 @@ namespace KeySystem //Keeps everyhting related to the Key in the Key System
                 {
                     doorAnim.Play(openAnimationName, 0, 0.0f);
                     doorOpen = true;
+                    StartCoroutine(PauseDoorInteraction());
                 }
                 else if(doorOpen && !pauseInteraction)
                 {
                     doorAnim.Play(closeAnimationName, 0, 0.0f);
-                    doorOpen= false;
+                    doorOpen= false; 
+                    StartCoroutine(PauseDoorInteraction());
                 }
             }
             else
