@@ -6042,6 +6042,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mug
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 692973afdf749624a9cf051d20b580c5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13433,7 +13437,7 @@ GameObject:
   - component: {fileID: 121274228}
   - component: {fileID: 121274230}
   - component: {fileID: 121274229}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: MissingGirlTimeCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17653,7 +17657,7 @@ GameObject:
   - component: {fileID: 179875086}
   - component: {fileID: 179875088}
   - component: {fileID: 179875087}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: MissingCloseButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19097,6 +19101,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 64051db692f6af743a94ead2361d43f3, type: 3}
       propertyPath: m_Name
       value: Dressform
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 64051db692f6af743a94ead2361d43f3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -38370,7 +38378,7 @@ GameObject:
   - component: {fileID: 315163799}
   - component: {fileID: 315163801}
   - component: {fileID: 315163800}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: MissingPoster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42025,6 +42033,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4f9fad2bdbb5b1b408775625d96d3687, type: 3}
       propertyPath: m_Name
       value: Stool
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4f9fad2bdbb5b1b408775625d96d3687, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -57560,6 +57572,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2f5511a511620a0438394ad4a789f67f, type: 3}
       propertyPath: m_Name
       value: TableMirror
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2f5511a511620a0438394ad4a789f67f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -73686,6 +73702,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Divider
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 96fae56ef851f2d43aa093ac1c253664, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -76475,7 +76495,7 @@ GameObject:
   - component: {fileID: 658054630}
   - component: {fileID: 658054632}
   - component: {fileID: 658054631}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: PoloroidCloseButtonPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79462,7 +79482,7 @@ GameObject:
   - component: {fileID: 686387348}
   - component: {fileID: 686387347}
   - component: {fileID: 686387346}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: PoloroidCloseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82065,7 +82085,7 @@ GameObject:
   - component: {fileID: 739748597}
   - component: {fileID: 739748599}
   - component: {fileID: 739748598}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Poloroid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92892,7 +92912,7 @@ GameObject:
   - component: {fileID: 906046921}
   - component: {fileID: 906046923}
   - component: {fileID: 906046922}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: PoloroidCloseButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94406,13 +94426,13 @@ GameObject:
   - component: {fileID: 931786270}
   - component: {fileID: 931786272}
   - component: {fileID: 931786271}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: TimeCards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &931786270
 RectTransform:
   m_ObjectHideFlags: 0
@@ -95375,7 +95395,7 @@ GameObject:
   - component: {fileID: 947464089}
   - component: {fileID: 947464091}
   - component: {fileID: 947464090}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: MissingCloseButtonPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113157,7 +113177,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 1870244838}
+  m_Mesh: {fileID: 2112809703}
 --- !u!33 &1070182355
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -121419,7 +121439,7 @@ GameObject:
   - component: {fileID: 1173186108}
   - component: {fileID: 1173186110}
   - component: {fileID: 1173186109}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: BackgroundPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124845,6 +124865,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d5b82227d3f37a24b80815de5825343a, type: 3}
       propertyPath: m_Name
       value: Rug
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d5b82227d3f37a24b80815de5825343a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -135450,7 +135474,7 @@ GameObject:
   - component: {fileID: 1242891766}
   - component: {fileID: 1242891765}
   - component: {fileID: 1242891764}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: MissingCloseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137825,7 +137849,7 @@ GameObject:
   - component: {fileID: 1274365080}
   - component: {fileID: 1274365079}
   - component: {fileID: 1274365078}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: UICanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140835,6 +140859,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 39b1ae0303c34f94d8e2d8ed71cf662b, type: 3}
       propertyPath: m_Name
       value: Lamp
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39b1ae0303c34f94d8e2d8ed71cf662b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -170327,7 +170355,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 972191349}
+  m_Mesh: {fileID: 453824240}
 --- !u!33 &1536500910
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -170663,7 +170691,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -170691,6 +170719,7 @@ MonoBehaviour:
   - {fileID: 1964373697}
   - {fileID: 1640667914}
   - {fileID: 1947345201}
+  - {fileID: 2056396186}
   animator: {fileID: 1537990672}
 --- !u!1 &1538116712
 GameObject:
@@ -192908,7 +192937,7 @@ Transform:
   m_GameObject: {fileID: 1640667913}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.2, y: 0, z: 26}
+  m_LocalPosition: {x: -60.3, y: 0, z: 15.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -203316,7 +203345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 32284d097762ca7408c6fd5d592f5b2d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -58
+      value: -74.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 32284d097762ca7408c6fd5d592f5b2d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -203324,7 +203353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 32284d097762ca7408c6fd5d592f5b2d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 821.3
+      value: 832.6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 32284d097762ca7408c6fd5d592f5b2d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -218362,7 +218391,7 @@ GameObject:
   - component: {fileID: 1820050898}
   - component: {fileID: 1820050900}
   - component: {fileID: 1820050899}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: RubicsCubeTimeCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219683,7 +219712,7 @@ GameObject:
   - component: {fileID: 1833254855}
   - component: {fileID: 1833254857}
   - component: {fileID: 1833254856}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: TessaTimeCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221009,6 +221038,7 @@ Transform:
   - {fileID: 1964373697}
   - {fileID: 1640667914}
   - {fileID: 1947345201}
+  - {fileID: 2056396186}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1859790721
@@ -225437,7 +225467,7 @@ GameObject:
   - component: {fileID: 1897099305}
   - component: {fileID: 1897099307}
   - component: {fileID: 1897099306}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: CameraManTimeCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231004,7 +231034,7 @@ Transform:
   m_GameObject: {fileID: 1947345200}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 45.5, y: 0, z: -39.2}
+  m_LocalPosition: {x: -53.6, y: 0, z: -29.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -232832,7 +232862,7 @@ Transform:
   m_GameObject: {fileID: 1964373696}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -37.4, y: 0, z: -47.7}
+  m_LocalPosition: {x: 14.1, y: 0, z: 24.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -234486,7 +234516,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 1030172721}
+  m_Mesh: {fileID: 547036029}
 --- !u!33 &1995470331
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -238859,6 +238889,54 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1 &2056396185
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2056396186}
+  - component: {fileID: 2056396187}
+  m_Layer: 0
+  m_Name: Target4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2056396186
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056396185}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 14.199997, y: 0, z: -39.63}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1858989482}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!208 &2056396187
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056396185}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &2068946555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -243408,6 +243486,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0eeb1ce8b105f2f4f946578c84634735, type: 3}
       propertyPath: m_Name
       value: Desk
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0eeb1ce8b105f2f4f946578c84634735, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

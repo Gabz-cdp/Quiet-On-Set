@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
+using System.Collections.Generic;
 
 public class TessaAI : MonoBehaviour
 {
@@ -20,7 +22,7 @@ public class TessaAI : MonoBehaviour
         {
             animator.SetBool("isMoving", true);
         }
-        else if(!agent.pathPending && agent.remainingDistance < 0.5f)
+        else if (!agent.pathPending && agent.remainingDistance < 0.5f)
         {
             currentPoint++;
 

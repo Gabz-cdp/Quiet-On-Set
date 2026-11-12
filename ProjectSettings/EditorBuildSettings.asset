@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: 1b645a0d7a6c70249854ba5b92379054
+  - enabled: 1
+    path: Assets/Scenes/Email.unity
+    guid: 1821bfe70c720fa489f299f62903b74a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 5c483bb0f8c006e448ef5851e3de4305, type: 3}
   m_UseUCBPForAssetBundles: 0
