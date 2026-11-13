@@ -195,7 +195,7 @@ public class FPController : MonoBehaviour
             if (doorAnimator != null)
             {
                 OpenDoorText.enabled = true;
-                OpenDoorText.text = "Open Door [E]";
+                OpenDoorText.text = "Press [E]";
                 OpenDoorCrossHair.gameObject.SetActive(true);
                 return;
             }
