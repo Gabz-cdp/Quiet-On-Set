@@ -25,7 +25,7 @@ public class FPController : MonoBehaviour
     public float originalMoveSpeed;
     public GameObject[] hiddenObjects;
     public bool bIsInCamera;
-    public bool hasCamera = false;
+    //public bool hasCamera = false;
     
 
     [Header("Crouch Settings")]
@@ -55,7 +55,7 @@ public class FPController : MonoBehaviour
     //public float rotatespeed = 3f;
 
     [Header("Read Object")]
-    public float readRange = 3f;
+    public float readRange = 5f;
     public TMP_Text readText; //Pickup text
     public GameObject readCrossHair; //Crosshair trigger to show when an object is in range
     public Canvas UICanvas;
@@ -64,6 +64,8 @@ public class FPController : MonoBehaviour
     public GameObject RubicsCubeTimeCard;
     public GameObject CameraManTimeCard;
     public GameObject MissingGirlTimeCard;
+    private bool isScreenUp = false;
+    private bool isReadable = false;
 
     [Header("Throw Settings")]
     public float throwForce = 10f;
@@ -157,14 +159,31 @@ public class FPController : MonoBehaviour
             PickUpObject pickUp = hit.collider.GetComponent<PickUpObject>();
             if (pickUp != null)
             {
-                pickupText.text = "pick up [E]"; //can replace to = pickUp.gameObject.name
+                pickupText.text = "Press [E]"; //can replace to = pickUp.gameObject.name
                 circleHair.gameObject.SetActive(true); //crosshair trigger enabled when raycast is on object/door
                 return;
             }
 
         }
 
+        //Readable Objects
+        Ray readRay = new Ray(cameraTransform.position, cameraTransform.forward);
+        RaycastHit readHit;
 
+        //Casts raycast to hit the game object
+        if (Physics.Raycast(readRay, out readHit, readRange))
+        {
+            //Check if object is a timecard
+            if (hit.collider.CompareTag("Read"))
+            {
+                //enables the read crosshairs if the object is readable
+                readText.enabled = true;
+                readText.text = "Read [R]";
+                readCrossHair.gameObject.SetActive(true);
+                isReadable = true;
+
+            }
+        }
 
         //==DOOR ANIMATION==
         if (Physics.Raycast(ray, out hit, OpenDoorRange))
@@ -376,8 +395,8 @@ public class FPController : MonoBehaviour
     //Camera and Hidden Objects
     public void OnReveal(InputAction.CallbackContext context)
     {
-        if (hasCamera == true)
-        {
+        //if (hasCamera == true)
+        //{
             if (context.performed)
             {
                 bIsInCamera = true;
@@ -400,7 +419,7 @@ public class FPController : MonoBehaviour
 
             StopBobbing();
 
-        }
+        //}
     }
 
 
@@ -438,10 +457,10 @@ public class FPController : MonoBehaviour
                 {
                     pickUp.PickUp(holdPoint);
                     heldObject = pickUp;
-                    if(pickUp.CompareTag("CameraObject"))
+                    /*if(pickUp.CompareTag("CameraObject"))
                     {
                         hasCamera = true; 
-                    }
+                    }*/
                 }
             }
         }
@@ -449,73 +468,62 @@ public class FPController : MonoBehaviour
         {
             heldObject.Drop();
             heldObject = null;
-            hasCamera = false;
+            //hasCamera = false;
         }
     }
 
     public void OnRead(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (isReadable == true)
         {
-            Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
-            RaycastHit hit;
-
-            //Casts raycast to hit the game object
-            if (Physics.Raycast(ray, out hit, readRange))
+            //Pause the screen when interacting with readable objects
+            if (context.performed && isScreenUp == false)
             {
-                //Check if object is a timecard
-                if (hit.collider.CompareTag("Read"))
+                isScreenUp = true;
+
+                //disable the crosshair and crosshair text
+                readText.enabled = false;
+                readCrossHair.gameObject.SetActive(false);
+
+                //actives the UI canvas and the Background panel
+                UICanvas.enabled = true;
+                BackgroundPanel.gameObject.SetActive(true);
+
+                //==TIME CARDS==
+                if (CameraManTimeCard)
                 {
-                    //enables the read crosshairs if the object is readable
-                    readText.enabled = true;
-                    readText.text = "Read [R]";
-                    readCrossHair.gameObject.SetActive(true);
+                    CameraManTimeCard.SetActive(true);
+                }
 
-                    //Pause the screen when interacting with readable objects
-                    if (context.performed)
-                    {
-                        Debug.Log("Read Objects Working");
+                if (MissingGirlTimeCard)
+                {
+                    MissingGirlTimeCard.SetActive(true);
+                }
 
-                        //disable the crosshair and crosshair text
-                        readText.enabled = false;
-                        readCrossHair.gameObject.SetActive(false);
+                if (CameraManTimeCard)
+                {
+                    TessaTimeCard.SetActive(true);
+                }
 
-                        //actives the UI canvas and the Background panel
-                        UICanvas.enabled = true;
-                        BackgroundPanel.gameObject.SetActive(true);
-
-                        //==TIME CARDS==
-                        if(CameraManTimeCard)
-                        {
-                            bool currentState = CameraManTimeCard.activeSelf;
-                            CameraManTimeCard.SetActive(!currentState);
-                            Debug.Log("Camera Man Time Card Working");
-                        }
-
-                        if (MissingGirlTimeCard)
-                        {
-                            bool currentState = MissingGirlTimeCard.activeSelf;
-                            MissingGirlTimeCard.SetActive(!currentState);
-                            Debug.Log("Camera Man Time Card Working");
-                        }
-
-                        if (CameraManTimeCard)
-                        {
-                            bool currentState = TessaTimeCard.activeSelf;
-                            TessaTimeCard.SetActive(!currentState);
-                            Debug.Log("Camera Man Time Card Working");
-                        }
-
-                        if (RubicsCubeTimeCard)
-                        {
-                            bool currentState = RubicsCubeTimeCard.activeSelf;
-                            RubicsCubeTimeCard.SetActive(!currentState);
-                            Debug.Log("Camera Man Time Card Working");
-                        }
-                    }
+                if (RubicsCubeTimeCard)
+                {
+                    RubicsCubeTimeCard.SetActive(true);
                 }
             }
-        }
+            else if (context.performed && isScreenUp == true)
+            {
+                //disables the UI canvas and the Background panel
+                UICanvas.enabled = false;
+                BackgroundPanel.gameObject.SetActive(false);
+
+                isScreenUp = false;
+
+                CameraManTimeCard.SetActive(false);
+                MissingGirlTimeCard.SetActive(false);
+                TessaTimeCard.SetActive(false);
+                RubicsCubeTimeCard.SetActive(false);
+            }
+        } 
     }
 
     public void OnClose()
