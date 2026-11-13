@@ -12,6 +12,7 @@ TagManager:
   - Read
   - InteractiveObject
   - CameraObject
+  - ScenePortal
   layers:
   - Default
   - TransparentFX

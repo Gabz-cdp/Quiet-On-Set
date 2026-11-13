@@ -75,7 +75,8 @@ public class FPController : MonoBehaviour
     public Transform playerCamera;
 
     [Header("Scene Interaction Settings")]
-    public float interactRange = 4f;
+    public float interactRange = 10f;
+    
 
 
     private CharacterController controller;
@@ -235,24 +236,7 @@ public class FPController : MonoBehaviour
         }
     }
 
-    public void OnSceneInteract(InputAction.CallbackContext context)
-    {
-        // Use this object's transform if no camera was manually assigned
-        Transform cam = playerCamera != null ? playerCamera : transform;
-        Ray ray = new Ray(cam.position, cam.forward);
-
-        // Checks everything in front of the camera within interactRange
-        if (Physics.Raycast(ray, out RaycastHit hit, interactRange))
-        {
-            // Checks the hit object or its parent for the ScenePortal script
-            ScenePortal portal = hit.collider.GetComponentInParent<ScenePortal>();
-
-            if (portal != null)
-            {
-                portal.TriggerSceneChange();
-            }
-        }
-    }
+    
 
     public void ExecuteInteraction()
     {
@@ -276,6 +260,27 @@ public class FPController : MonoBehaviour
         }
     }
 
+    public void OnScenePortalInteract(InputAction.CallbackContext context)
+    {
+        // Use this object's transform if no camera was manually assigned
+        Transform cam = playerCamera != null ? playerCamera : transform;
+        Ray ray = new Ray(cam.position, cam.forward);
+
+        // Checks everything in front of the camera within interactRange
+
+        if (Physics.Raycast(ray, out RaycastHit hit, interactRange))
+        {
+            // Checks the hit object or its parent for the ScenePortal script
+            ScenePortal portal = hit.collider.GetComponent<ScenePortal>();
+
+            if (portal != null)
+            {
+                portal.TriggerSceneChange();
+            }
+        }
+    }
+
+  
 
     public void OnInteract(InputAction.CallbackContext context)
     {

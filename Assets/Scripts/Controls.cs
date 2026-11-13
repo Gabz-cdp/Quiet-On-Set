@@ -181,6 +181,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OnScenePortalInteract"",
+                    ""type"": ""Button"",
+                    ""id"": ""0043d790-c9b7-4c7e-a53d-ca33ef764930"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -480,6 +489,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""OnRead"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""02277d4d-0e4e-4080-830e-afbab1ea727b"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard + Mouse"",
+                    ""action"": ""OnScenePortalInteract"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -526,6 +546,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_OpenPauseMenu = m_Player.FindAction("OpenPauseMenu", throwIfNotFound: true);
         m_Player_NPCINTERACT = m_Player.FindAction("NPCINTERACT", throwIfNotFound: true);
         m_Player_OnRead = m_Player.FindAction("OnRead", throwIfNotFound: true);
+        m_Player_OnScenePortalInteract = m_Player.FindAction("OnScenePortalInteract", throwIfNotFound: true);
     }
 
     ~@Controls()
@@ -616,6 +637,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_OpenPauseMenu;
     private readonly InputAction m_Player_NPCINTERACT;
     private readonly InputAction m_Player_OnRead;
+    private readonly InputAction m_Player_OnScenePortalInteract;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -667,6 +689,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/OnRead".
         /// </summary>
         public InputAction @OnRead => m_Wrapper.m_Player_OnRead;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/OnScenePortalInteract".
+        /// </summary>
+        public InputAction @OnScenePortalInteract => m_Wrapper.m_Player_OnScenePortalInteract;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -723,6 +749,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @OnRead.started += instance.OnOnRead;
             @OnRead.performed += instance.OnOnRead;
             @OnRead.canceled += instance.OnOnRead;
+            @OnScenePortalInteract.started += instance.OnOnScenePortalInteract;
+            @OnScenePortalInteract.performed += instance.OnOnScenePortalInteract;
+            @OnScenePortalInteract.canceled += instance.OnOnScenePortalInteract;
         }
 
         /// <summary>
@@ -764,6 +793,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @OnRead.started -= instance.OnOnRead;
             @OnRead.performed -= instance.OnOnRead;
             @OnRead.canceled -= instance.OnOnRead;
+            @OnScenePortalInteract.started -= instance.OnOnScenePortalInteract;
+            @OnScenePortalInteract.performed -= instance.OnOnScenePortalInteract;
+            @OnScenePortalInteract.canceled -= instance.OnOnScenePortalInteract;
         }
 
         /// <summary>
@@ -900,5 +932,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnOnRead(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "OnScenePortalInteract" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnOnScenePortalInteract(InputAction.CallbackContext context);
     }
 }

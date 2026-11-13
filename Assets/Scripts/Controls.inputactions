@@ -95,6 +95,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "OnScenePortalInteract",
+                    "type": "Button",
+                    "id": "0043d790-c9b7-4c7e-a53d-ca33ef764930",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -392,6 +401,17 @@
                     "processors": "",
                     "groups": ";Keyboard + Mouse",
                     "action": "OnRead",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "02277d4d-0e4e-4080-830e-afbab1ea727b",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard + Mouse",
+                    "action": "OnScenePortalInteract",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

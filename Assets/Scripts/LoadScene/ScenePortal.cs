@@ -14,7 +14,7 @@ public class ScenePortal : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("EndScene is empty on " + gameObject.name);
+            //Debug.LogWarning("EndScene is empty on " + gameObject.name);
         }
     }
 }
