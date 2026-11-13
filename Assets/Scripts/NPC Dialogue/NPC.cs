@@ -1,5 +1,5 @@
 using UnityEngine;
-using static UnityEditor.Rendering.MaterialUpgrader;
+//using static UnityEditor.Rendering.MaterialUpgrader;
 
 public class NPC : MonoBehaviour
 {
