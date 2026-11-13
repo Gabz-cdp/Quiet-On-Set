@@ -53,6 +53,7 @@ namespace KeySystem //Keeps everyhting related to the Key in the Key System
                     //The key on the keyboard to interact with the keycard and door
                     if (Keyboard.current.eKey.wasPressedThisFrame) //(Keyboard.current[KeyCode.R].wasPressedThisFrame) //(Input.GetKeyDown(openDoorKey)) 
                     {
+                        Debug.Log("Interacting with key card");
                         raycastedObject.ObjectInteraction();
                     }
                 }

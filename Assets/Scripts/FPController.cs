@@ -165,7 +165,7 @@ public class FPController : MonoBehaviour
 
 
 
-        /*//==DOOR ANIMATION==
+        //==DOOR ANIMATION==
         if (Physics.Raycast(ray, out hit, OpenDoorRange))
         {
             //Play the "DoorOpen" animation if the object is a door
@@ -202,7 +202,7 @@ public class FPController : MonoBehaviour
 
         // Clear text if not looking at the door
         OpenDoorText.text = ""; //clears text when raycast isnt hitting the door
-        OpenDoorCrossHair.gameObject.SetActive(false); //disables the crosshair for the door*/
+        OpenDoorCrossHair.gameObject.SetActive(false); //disables the crosshair for the door
         
     }
 
@@ -277,7 +277,7 @@ public class FPController : MonoBehaviour
     }
 
 
-    /*public void OnInteract(InputAction.CallbackContext context)
+    public void OnInteract(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
@@ -297,7 +297,7 @@ public class FPController : MonoBehaviour
                     if (isOpen)
                     {
                         //Front Office Door
-                        doorAnimator.SetTrigger("CloseDoor");
+                        doorAnimator.SetTrigger("DoorClose");
                         doorAnimator.SetBool("isOpen", false);
 
                         //Supply Closey
@@ -307,43 +307,12 @@ public class FPController : MonoBehaviour
                     else
                     {
                         //Front Office Door
-                        doorAnimator.SetTrigger("OpenDoor");
+                        doorAnimator.SetTrigger("DoorOpen");
                         doorAnimator.SetBool("isOpen", true);
 
                         //Supply Closey
                         doorAnimator.SetTrigger("OpenDoor");
                         doorAnimator.SetBool("isOpen", true);
-                    }
-                    
-                    /*if (doorAnimator != null)
-                    {
-                        //Supply Closet Door
-                        doorAnimator.SetTrigger("DoorOpen");
-                        OpenDoorText.text = "Open Door [E]";
-                        OpenDoorCrossHair.gameObject.SetActive(true);
-                        return;
-
-                    }
-                    else
-                    {
-                        doorAnimator.SetTrigger("DoorClose");
-                        CloseDoorText.text = "Close Door [E]";
-                        CloseDoorCrossHair.gameObject.SetActive(true);
-                        return;
-                    }*/
-
-                    /*if (IsOpen)
-                    {
-                        doorAnimator.SetTrigger("DoorClose");
-                        doorAnimator.SetBool("IsOpen", false);
-                        CloseDoorText.text = "Close Door [E]";
-                        CloseDoorCrossHair.gameObject.SetActive(true);
-                        return;
-                    }
-                    else
-                    {
-                        doorAnimator.SetTrigger("DoorOpen");
-                        doorAnimator.SetBool("IsOpen", true);
                     }
                 }
             }
@@ -353,7 +322,7 @@ public class FPController : MonoBehaviour
         }
 
 
-    }*/
+    }
 
     /*public void OnMove(InputAction.CallbackContext context)
     {
@@ -510,7 +479,7 @@ public class FPController : MonoBehaviour
 
                         //actives the UI canvas and the Background panel
                         UICanvas.enabled = true;
-                        //BackgroundPanel.gameObject.SetActive(true);
+                        BackgroundPanel.gameObject.SetActive(true);
 
                         //==TIME CARDS==
                         if(CameraManTimeCard)
@@ -520,7 +489,7 @@ public class FPController : MonoBehaviour
                             Debug.Log("Camera Man Time Card Working");
                         }
 
-                        /*if (MissingGirlTimeCard)
+                        if (MissingGirlTimeCard)
                         {
                             bool currentState = MissingGirlTimeCard.activeSelf;
                             MissingGirlTimeCard.SetActive(!currentState);
@@ -539,7 +508,7 @@ public class FPController : MonoBehaviour
                             bool currentState = RubicsCubeTimeCard.activeSelf;
                             RubicsCubeTimeCard.SetActive(!currentState);
                             Debug.Log("Camera Man Time Card Working");
-                        }*/
+                        }
                     }
                 }
             }
