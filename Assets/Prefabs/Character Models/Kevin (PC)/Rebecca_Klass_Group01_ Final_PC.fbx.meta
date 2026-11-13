@@ -48,7 +48,16 @@ ModelImporter:
     removeConstantScaleCurves: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'Armature|Idle_Animation' has import animation
+      warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'BN_CTRL_Pelvis' has translation
+      animation that will be discarded.\n\nClip 'Armature|Idle_Still' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'BN_CTRL_Pelvis' has translation
+      animation that will be discarded.\n\nClip 'Armature|Walk_Cycle' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'BN_CTRL_Pelvis' has translation
+      animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -229,8 +238,453 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
-    human: []
-    skeleton: []
+    human:
+    - boneName: BN_Root
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: BN_DEF_FK_Thigh.L
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: BN_DEF_FK_Thigh.R
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: BN_DEF_FK_Shin.L
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: BN_DEF_FK_Shin.R
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: BN_DEF_FK_Foot.L
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: BN_DEF_FK_Foot.R
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: BN_DEF_Spine01
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: BN_DEF_Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: BN_DEF_Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: BN_DEF_Clavicle.L
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: BN_DEF_Clavicle.R
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: BN_DEF_FKUpperArm.L
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: BN_DEF_FKUpperArm.R
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: BN_DEF_FKLowerArm.L
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: BN_DEF_FKLowerArm.R
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: BN_DEF_FKHand.L
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: BN_DEF_FKHand.R
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: BN_DEF_FK_Toe.L
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: BN_DEF_FK_Toe.R
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Rebecca_Klass_Group01_ Final_PC(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armature
+      parentName: Rebecca_Klass_Group01_ Final_PC(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: BN_Root
+      parentName: Armature
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.00029668215, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BN_CTRL_Pelvis
+      parentName: BN_Root
+      position: {x: -0.00000530987, y: -0.002693436, z: 0.014953409}
+      rotation: {x: 0.37146226, y: -0.010738057, z: 0.000025062094, w: 0.928386}
+      scale: {x: 1, y: 1.0000002, z: 1.0000001}
+    - name: BN_DEF_Spine01
+      parentName: BN_CTRL_Pelvis
+      position: {x: -7.566996e-12, y: 0.004860182, z: 6.025948e-10}
+      rotation: {x: 0.39359125, y: 0.00000002142042, z: 0.00002357969, w: 0.9192856}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: BN_DEF_Spine02
+      parentName: BN_DEF_Spine01
+      position: {x: -9.9535095e-11, y: 0.0044021173, z: 1.9135768e-11}
+      rotation: {x: -0.00007927417, y: 0.00000001826022, z: -0.0099981865, w: 0.99995}
+      scale: {x: 0.9999999, y: 0.9999999, z: 0.9999998}
+    - name: BN_DEF_Clavicle.L
+      parentName: BN_DEF_Spine02
+      position: {x: -0.0008547242, y: 0.0025067234, z: 0.0016995022}
+      rotation: {x: -0.05649931, y: -0.070712686, z: 0.61154383, w: 0.78601635}
+      scale: {x: 1.0000002, y: 0.9999997, z: 1}
+    - name: BN_MECH_UpperArm.L
+      parentName: BN_DEF_Clavicle.L
+      position: {x: -0.00047311705, y: 0.0038715093, z: -0.0004274886}
+      rotation: {x: 0.16994537, y: -0.010750405, z: 0.2794152, w: 0.94494987}
+      scale: {x: 1.0000006, y: 1.0000005, z: 1.0000007}
+    - name: BN_MECH_LowerArm.L
+      parentName: BN_MECH_UpperArm.L
+      position: {x: -0.0000000040233132, y: 0.0057219104, z: 9.685754e-10}
+      rotation: {x: 0.015960753, y: 0.025181275, z: -0.10556704, w: 0.9939652}
+      scale: {x: 0.9999997, y: 0.99999964, z: 1.0000001}
+    - name: BN_DEF_FKUpperArm.L
+      parentName: BN_DEF_Clavicle.L
+      position: {x: -0.00047311705, y: 0.0038715093, z: -0.0004274886}
+      rotation: {x: 0.102647595, y: -0.015400868, z: 0.15539137, w: 0.98238474}
+      scale: {x: 1.0000006, y: 1.0000006, z: 1.0000007}
+    - name: BN_DEF_FKLowerArm.L
+      parentName: BN_DEF_FKUpperArm.L
+      position: {x: -0.0000000027939677, y: 0.0057606027, z: 4.4703483e-10}
+      rotation: {x: 0.026556212, y: 0.02719206, z: -0.050647147, w: 0.9979931}
+      scale: {x: 1, y: 0.9999995, z: 1.0000001}
+    - name: BN_DEF_FKHand.L
+      parentName: BN_DEF_FKLowerArm.L
+      position: {x: -7.4505804e-11, y: 0.0040654796, z: 2.2351741e-10}
+      rotation: {x: -0.06602199, y: 0.0054971534, z: 0.0018621485, w: 0.9978013}
+      scale: {x: 0.99999976, y: 1.0000001, z: 0.99999994}
+    - name: BN_CTRL_WristIK.L
+      parentName: BN_DEF_Spine02
+      position: {x: -0.015067221, y: -0.0069978735, z: 0.00014069915}
+      rotation: {x: -0.7073895, y: 0.0028005124, z: 0.0028028016, w: 0.7068129}
+      scale: {x: 0.9999999, y: 0.9999999, z: 1}
+    - name: BN_CTRL_PTargetElbow.L
+      parentName: BN_CTRL_WristIK.L
+      position: {x: 0.009540003, y: 0.010814748, z: 0.0001751886}
+      rotation: {x: -0.0027980497, y: -0.00016595976, z: 0.010014617, w: 0.99994594}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1}
+    - name: BN_DEF_Clavicle.R
+      parentName: BN_DEF_Spine02
+      position: {x: 0.0011462073, y: 0.0025067234, z: 0.0016836462}
+      rotation: {x: -0.061343748, y: 0.0769394, z: -0.6110765, w: 0.7854317}
+      scale: {x: 1.0000002, y: 1.0000002, z: 0.99999994}
+    - name: BN_MECH_UpperArm.R
+      parentName: BN_DEF_Clavicle.R
+      position: {x: 0.00047312412, y: 0.003871509, z: -0.0004274881}
+      rotation: {x: 0.16994542, y: 0.010750361, z: -0.27941534, w: 0.9449498}
+      scale: {x: 1.0000007, y: 1.0000005, z: 0.99999994}
+    - name: BN_MECH_LowerArm.R
+      parentName: BN_MECH_UpperArm.R
+      position: {x: 6.3329936e-10, y: 0.005721911, z: -0.0000000016391277}
+      rotation: {x: 0.015960693, y: -0.025181323, z: 0.10556716, w: 0.9939652}
+      scale: {x: 1, y: 1.0000007, z: 0.99999994}
+    - name: BN_DEF_FKUpperArm.R
+      parentName: BN_DEF_Clavicle.R
+      position: {x: 0.00047312412, y: 0.003871509, z: -0.0004274881}
+      rotation: {x: 0.10264818, y: 0.015400609, z: -0.1553923, w: 0.9823846}
+      scale: {x: 1.0000007, y: 1.0000006, z: 0.99999994}
+    - name: BN_DEF_FKLowerArm.R
+      parentName: BN_DEF_FKUpperArm.R
+      position: {x: 0.0000000026077032, y: 0.005760602, z: -0.0000000023841857}
+      rotation: {x: 0.02655656, y: -0.027191767, z: 0.050648402, w: 0.9979931}
+      scale: {x: 1, y: 1.0000006, z: 0.9999998}
+    - name: BN_DEF_FKHand.R
+      parentName: BN_DEF_FKLowerArm.R
+      position: {x: 0.0000000013038516, y: 0.004065478, z: -1.4901161e-10}
+      rotation: {x: -0.06602196, y: -0.0054972745, z: -0.0018620051, w: 0.9978013}
+      scale: {x: 1.0000001, y: 0.9999997, z: 1.0000002}
+    - name: BN_CTRL_WristIK.R
+      parentName: BN_DEF_Spine02
+      position: {x: 0.015332217, y: -0.0069978735, z: -0.00010020065}
+      rotation: {x: -0.7073895, y: 0.0028005124, z: 0.0028028016, w: 0.7068129}
+      scale: {x: 0.9999999, y: 0.9999999, z: 1}
+    - name: BN_CTRL_PTargetElbow.R
+      parentName: BN_CTRL_WristIK.R
+      position: {x: -0.009540003, y: 0.010814748, z: 0.00017518856}
+      rotation: {x: -0.0027979908, y: 0.00016596027, z: -0.010014621, w: 0.999946}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1}
+    - name: BN_DEF_Spine03
+      parentName: BN_DEF_Spine02
+      position: {x: 1.1614531e-12, y: 0.002317984, z: -4.3539217e-11}
+      rotation: {x: 2.1827871e-11, y: -0.0000000018628936, z: 0.0000000037265897, w: 1}
+      scale: {x: 0.9999998, y: 1, z: 0.9999998}
+    - name: BN_DEF_Neck
+      parentName: BN_DEF_Spine03
+      position: {x: -5.8182612e-12, y: 0.0025233768, z: 8.3247184e-13}
+      rotation: {x: -5.20417e-18, y: -4.654676e-10, z: -0.0000000018626818, w: 1}
+      scale: {x: 0.9999999, y: 1, z: 0.99999976}
+    - name: BN_DEF_Head
+      parentName: BN_DEF_Neck
+      position: {x: 5.08483e-12, y: 0.002024567, z: -6.243397e-11}
+      rotation: {x: -0.00006381218, y: -0.00000002369264, z: -0.008063474, w: 0.9999675}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BN_CTRL_Spine01
+      parentName: BN_CTRL_Pelvis
+      position: {x: -7.566996e-12, y: 0.004860182, z: 6.025948e-10}
+      rotation: {x: 0.39359125, y: 0.000000027474016, z: 0.000023583416, w: 0.9192856}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: BN_DEF_Pelvis
+      parentName: BN_CTRL_Pelvis
+      position: {x: -7.566996e-12, y: 0.004860182, z: 6.025948e-10}
+      rotation: {x: 0.9999338, y: -0.000000004656613, z: -0.0115081705, w: -0.00000012672899}
+      scale: {x: 1, y: 1.0000006, z: 1.0000007}
+    - name: BN_DEF_Thigh.L
+      parentName: BN_DEF_Pelvis
+      position: {x: -0.0022072073, y: 0.0012906359, z: 0.00011308714}
+      rotation: {x: -0.009226774, y: 0.9373929, z: 0.34793946, w: 0.01214899}
+      scale: {x: 1.0000001, y: 0.9999999, z: 0.99999976}
+    - name: BN_DEF_Shin.L
+      parentName: BN_DEF_Thigh.L
+      position: {x: -2.0256266e-10, y: 0.008744328, z: 4.0046869e-10}
+      rotation: {x: -0.13848725, y: 0.0103520425, z: 0.012399748, w: 0.99023247}
+      scale: {x: 1.0000001, y: 1.0000004, z: 0.9999998}
+    - name: BN_DEF_Foot.L
+      parentName: BN_DEF_Shin.L
+      position: {x: -1.8735591e-10, y: 0.006301472, z: 2.3283063e-11}
+      rotation: {x: -0.0000000088475645, y: -0.816771, z: -0.5769621, w: 0.00000006146729}
+      scale: {x: 1.0000006, y: 1.0000017, z: 1.0000029}
+    - name: BN_DEF_Toe.L
+      parentName: BN_DEF_Foot.L
+      position: {x: -8.5745064e-11, y: 0.0027195294, z: -1.0639212e-10}
+      rotation: {x: -0.000000001653669, y: 0.97511584, z: -0.22169626, w: 0.00000007329066}
+      scale: {x: 0.99999994, y: 1.0000001, z: 0.9999999}
+    - name: BN_DEF_FK_Thigh.L
+      parentName: BN_DEF_Pelvis
+      position: {x: -0.0022072073, y: 0.0012906359, z: 0.00011308714}
+      rotation: {x: -0.009226774, y: 0.9373929, z: 0.34793946, w: 0.01214899}
+      scale: {x: 1.0000001, y: 0.9999999, z: 0.99999976}
+    - name: BN_DEF_FK_Shin.L
+      parentName: BN_DEF_FK_Thigh.L
+      position: {x: 9.313225e-11, y: 0.008744328, z: 3.1664968e-10}
+      rotation: {x: -0.13848725, y: 0.0103520425, z: 0.012399748, w: 0.99023247}
+      scale: {x: 1.0000001, y: 1.0000004, z: 0.9999998}
+    - name: BN_DEF_FK_Foot.L
+      parentName: BN_DEF_FK_Shin.L
+      position: {x: -1.8811988e-10, y: 0.006301472, z: 5.5879353e-11}
+      rotation: {x: -0.00000016461127, y: -0.816771, z: -0.57696205, w: -0.00000016018748}
+      scale: {x: 1.0000007, y: 1.0000018, z: 1.0000029}
+    - name: BN_DEF_FK_Toe.L
+      parentName: BN_DEF_FK_Foot.L
+      position: {x: 6.3266385e-11, y: 0.0027195294, z: 4.2618922e-11}
+      rotation: {x: -0.00000012311735, y: 0.9751158, z: -0.22169632, w: 0.00000007111445}
+      scale: {x: 1.0000005, y: 1.0000004, z: 0.9999999}
+    - name: BN_DEF_Thigh.R
+      parentName: BN_DEF_Pelvis
+      position: {x: 0.0022754828, y: 0.0013266067, z: 0.000099211495}
+      rotation: {x: 0.0027816845, y: 0.9373946, z: 0.34780055, w: -0.017841954}
+      scale: {x: 1, y: 1.0000006, z: 0.9999996}
+    - name: BN_DEF_Shin.R
+      parentName: BN_DEF_Thigh.R
+      position: {x: -7.21775e-11, y: 0.008744327, z: -5.5879353e-11}
+      rotation: {x: -0.1384872, y: -0.010352058, z: -0.01239977, w: 0.99023247}
+      scale: {x: 1.0000002, y: 0.99999994, z: 0.99999976}
+    - name: BN_DEF_Foot.R
+      parentName: BN_DEF_Shin.R
+      position: {x: 1.7829734e-10, y: 0.0063014696, z: 3.7252902e-11}
+      rotation: {x: 0.00000000721775, y: -0.81677085, z: -0.5769622, w: -0.00000006146729}
+      scale: {x: 1.0000008, y: 1.0000014, z: 1.0000029}
+    - name: BN_DEF_Toe.R
+      parentName: BN_DEF_Foot.R
+      position: {x: 8.574495e-11, y: 0.002719529, z: 4.2619488e-11}
+      rotation: {x: 0.0000000035945815, y: 0.9751158, z: -0.22169629, w: -0.00000007168334}
+      scale: {x: 1, y: 1.0000004, z: 0.9999996}
+    - name: BN_DEF_FK_Thigh.R
+      parentName: BN_DEF_Pelvis
+      position: {x: 0.0022754828, y: 0.0013266067, z: 0.000099211495}
+      rotation: {x: 0.0027816845, y: 0.9373946, z: 0.34780055, w: -0.017841954}
+      scale: {x: 1, y: 1.0000006, z: 0.9999996}
+    - name: BN_DEF_FK_Shin.R
+      parentName: BN_DEF_FK_Thigh.R
+      position: {x: 1.0710209e-10, y: 0.008744329, z: 2.7939677e-11}
+      rotation: {x: -0.1384872, y: -0.010352058, z: -0.01239977, w: 0.99023247}
+      scale: {x: 1.0000002, y: 0.99999994, z: 0.99999976}
+    - name: BN_DEF_FK_Foot.R
+      parentName: BN_DEF_FK_Shin.R
+      position: {x: 1.7564161e-10, y: 0.0063014696, z: 7.683411e-11}
+      rotation: {x: 0.00000016367994, y: -0.81677085, z: -0.5769622, w: 0.00000016018748}
+      scale: {x: 1.0000008, y: 1.0000014, z: 1.0000029}
+    - name: BN_DEF_FK_Toe.R
+      parentName: BN_DEF_FK_Foot.R
+      position: {x: 8.5745314e-11, y: 0.0027195292, z: -3.1886317e-11}
+      rotation: {x: 0.0000001240871, y: 0.9751158, z: -0.22169629, w: -0.00000007091207}
+      scale: {x: 1, y: 1.0000004, z: 0.9999996}
+    - name: BN_IK_CTRL_Foot.L
+      parentName: Armature
+      position: {x: -0.0024310919, y: -0.0040674163, z: 0.00093392684}
+      rotation: {x: 0.015252591, y: -0, z: -0, w: 0.9998837}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: IK_CRTL_PTargetKnee.L
+      parentName: BN_IK_CTRL_Foot.L
+      position: {x: 0.0005945849, y: -0.010980681, z: 0.008019434}
+      rotation: {x: -0.015252502, y: -0, z: -0, w: 0.9998837}
+      scale: {x: 1, y: 1.0000008, z: 1.0000007}
+    - name: BN_IK_DEF_HeelPeel.L
+      parentName: BN_IK_CTRL_Foot.L
+      position: {x: 0.00012523487, y: 0.006517706, z: -0.00017891613}
+      rotation: {x: -0.020143846, y: 0.028567085, z: 0.9993041, w: 0.013015985}
+      scale: {x: 1.0000015, y: 1.0000004, z: 1.0000035}
+    - name: BN_IK_DEF_ToeRoll.L
+      parentName: BN_IK_DEF_HeelPeel.L
+      position: {x: 2.0954757e-10, y: 0.004610182, z: -1.3969838e-10}
+      rotation: {x: -0.99980104, y: -0.000000018974786, z: -0.019945016, w: 0.00000001117587}
+      scale: {x: 1.0000002, y: 1.0000006, z: 1.0000004}
+    - name: BN_IK_TargetFoot.L
+      parentName: BN_IK_DEF_ToeRoll.L
+      position: {x: 0.00006361944, y: 0.0023226757, z: -0.0014131374}
+      rotation: {x: -0.0034944024, y: -0.26979777, z: -0.9628212, w: -0.013127609}
+      scale: {x: 1, y: 1.0000004, z: 1.0000007}
+    - name: BN_IK_CTRL_Heel.L
+      parentName: BN_IK_CTRL_Foot.L
+      position: {x: -0, y: 0.007425903, z: 0.0012664017}
+      rotation: {x: -0.009156296, y: -0, z: -0, w: 0.9999581}
+      scale: {x: 1, y: 1.0000004, z: 1.0000004}
+    - name: FK/IK Switch
+      parentName: Armature
+      position: {x: -0.000014966884, y: 0.00081462733, z: 0.04947542}
+      rotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BN_IK_CTRL_MainFoot.R
+      parentName: Armature
+      position: {x: 0.0024310919, y: -0.0040674163, z: 0.00093392684}
+      rotation: {x: 0.015252591, y: -0, z: -0, w: 0.9998837}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: IK_CRTL_PTargetKnee.R
+      parentName: BN_IK_CTRL_MainFoot.R
+      position: {x: -0.0005945849, y: -0.010980681, z: 0.008019434}
+      rotation: {x: -0.015252502, y: -0, z: -0, w: 0.9998837}
+      scale: {x: 1, y: 1.0000008, z: 1.0000007}
+    - name: BN_IK_DEF_HeelPeel.R
+      parentName: BN_IK_CTRL_MainFoot.R
+      position: {x: -0.00012523487, y: 0.006517706, z: -0.00017891613}
+      rotation: {x: 0.020143846, y: 0.028567085, z: 0.9993041, w: -0.013015985}
+      scale: {x: 1.0000015, y: 1.0000004, z: 1.0000035}
+    - name: BN_IK_DEF_ToeRoll.R
+      parentName: BN_IK_DEF_HeelPeel.R
+      position: {x: -2.0954757e-10, y: 0.004610182, z: -1.3969838e-10}
+      rotation: {x: -0.99980104, y: 0.000000018974786, z: 0.019945016, w: 0.00000001117587}
+      scale: {x: 1.0000002, y: 1.0000006, z: 1.0000004}
+    - name: BN_IK_TargetFoot.R
+      parentName: BN_IK_DEF_ToeRoll.R
+      position: {x: -0.00006361944, y: 0.0023226757, z: -0.0014131374}
+      rotation: {x: 0.0034944024, y: -0.26979777, z: -0.9628212, w: 0.013127609}
+      scale: {x: 1, y: 1.0000004, z: 1.0000007}
+    - name: BN_IK_CTRL_Heel.R
+      parentName: BN_IK_CTRL_MainFoot.R
+      position: {x: -0, y: 0.007425903, z: 0.0012664017}
+      rotation: {x: -0.009156296, y: -0, z: -0, w: 0.9999581}
+      scale: {x: 1, y: 1.0000004, z: 1.0000004}
+    - name: Low Poly PC
+      parentName: Rebecca_Klass_Group01_ Final_PC(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5

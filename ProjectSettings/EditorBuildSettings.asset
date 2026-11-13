@@ -6,14 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Break Room.unity
-    guid: 3455819f101e90845b1f16e7498dae3d
-  - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: 1b645a0d7a6c70249854ba5b92379054
   - enabled: 1
     path: Assets/Scenes/Email.unity
     guid: 1821bfe70c720fa489f299f62903b74a
+  - enabled: 1
+    path: Assets/Scenes/Break Room.unity
+    guid: 3455819f101e90845b1f16e7498dae3d
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: fe9781915bcf3b04facaec4c92059b4a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 5c483bb0f8c006e448ef5851e3de4305, type: 3}
   m_UseUCBPForAssetBundles: 0

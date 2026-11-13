@@ -11,6 +11,9 @@ public class FPController : MonoBehaviour
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
     public float gravity = -9.81f;
+    public Animator animator;
+    public bool isWalking = false;
+
 
     [Header("Look Settings")]
     public Transform cameraTransform;
@@ -69,7 +72,10 @@ public class FPController : MonoBehaviour
     [Header("NPC Interaction Settings")]
     public float interactionDistance = 5f;
     public LayerMask npcLayer; // Put your NPCs on a specific layer to avoid hitting walls
-    public Transform playerCamera; // Drag your main camera here if first-person, or use transform if 3D third-person
+    public Transform playerCamera;
+
+    [Header("Scene Interaction Settings")]
+    public float interactRange = 4f;
 
 
     private CharacterController controller;
@@ -84,6 +90,7 @@ public class FPController : MonoBehaviour
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
+        animator = GetComponentInChildren<Animator>();
 
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         UnityEngine.Cursor.visible = false;
@@ -99,6 +106,12 @@ public class FPController : MonoBehaviour
         readText.enabled = false;
 
     }
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        moveInput = context.ReadValue<Vector2>();
+    }
+
     private void Update()
     {
         HandleMovement();
@@ -108,6 +121,31 @@ public class FPController : MonoBehaviour
         if (heldObject != null)
         {
             heldObject.MoveToHoldPoint(holdPoint.position);
+        }
+
+        Vector3 camForward = cameraTransform.forward;
+        Vector3 camRight = cameraTransform.right;
+        camForward.y = 0f;
+        camRight.y = 0f;
+        camForward.Normalize();
+        camRight.Normalize();
+
+        
+        Vector3 moveDirection = (camForward * moveInput.y + camRight * moveInput.x).normalized;
+
+        if (moveDirection.sqrMagnitude > 0.01f)
+        {
+            controller.Move(moveDirection * moveSpeed * Time.deltaTime);
+
+            
+            Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
+            //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+            animator.SetBool("isWalking", true);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
         }
 
         //==INTERACTABLE OBJECTS==
@@ -122,6 +160,7 @@ public class FPController : MonoBehaviour
                 circleHair.gameObject.SetActive(true); //crosshair trigger enabled when raycast is on object/door
                 return;
             }
+
         }
 
 
@@ -192,6 +231,25 @@ public class FPController : MonoBehaviour
                 //pickupText.text = "Talk press [E]";
 
                 hit.collider.GetComponent<NPC>().TriggerDialogue();
+            }
+        }
+    }
+
+    public void OnSceneInteract(InputAction.CallbackContext context)
+    {
+        // Use this object's transform if no camera was manually assigned
+        Transform cam = playerCamera != null ? playerCamera : transform;
+        Ray ray = new Ray(cam.position, cam.forward);
+
+        // Checks everything in front of the camera within interactRange
+        if (Physics.Raycast(ray, out RaycastHit hit, interactRange))
+        {
+            // Checks the hit object or its parent for the ScenePortal script
+            ScenePortal portal = hit.collider.GetComponentInParent<ScenePortal>();
+
+            if (portal != null)
+            {
+                portal.TriggerSceneChange();
             }
         }
     }
@@ -297,7 +355,7 @@ public class FPController : MonoBehaviour
 
     }*/
 
-    public void OnMove(InputAction.CallbackContext context)
+    /*public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
 
@@ -309,7 +367,7 @@ public class FPController : MonoBehaviour
         {
             StopBobbing();
         }
-    }
+    }*/
 
     public void OnLook(InputAction.CallbackContext context)
     {
