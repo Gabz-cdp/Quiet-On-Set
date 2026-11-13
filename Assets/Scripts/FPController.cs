@@ -465,7 +465,6 @@ public class FPController : MonoBehaviour
                     readText.enabled = true;
                     readText.text = "Read [R]";
                     readCrossHair.gameObject.SetActive(true);
-                    return;
 
                     //Pause the screen when interacting with readable objects
                     if (context.performed)
@@ -475,7 +474,6 @@ public class FPController : MonoBehaviour
                         //disable the crosshair and crosshair text
                         readText.enabled = false;
                         readCrossHair.gameObject.SetActive(false);
-                        return;
 
                         //actives the UI canvas and the Background panel
                         UICanvas.enabled = true;

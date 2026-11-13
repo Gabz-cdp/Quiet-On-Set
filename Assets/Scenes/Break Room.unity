@@ -180109,7 +180109,7 @@ MonoBehaviour:
   - {fileID: 1679027802}
   - {fileID: 2047334066}
   bIsInCamera: 1
-  hasCamera: 1
+  hasCamera: 0
   crouchHeight: 1
   standHeight: 2
   crouchSpeed: 2.5
